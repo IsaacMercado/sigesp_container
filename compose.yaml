@@ -1,0 +1,15 @@
+services:
+  sigesp:
+    image: sigesp2/service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sigesp2
+    volumes:
+      - ./sigesp:/var/www/html
+      - sigesp-data:/var/lib/postgresql/data
+    ports:
+      - "8080:80"
+
+volumes:
+  sigesp-data:
