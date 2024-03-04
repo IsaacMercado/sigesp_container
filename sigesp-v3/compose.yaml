@@ -1,0 +1,15 @@
+services:
+  sigesp:
+    image: cida/sigesp:v3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sigesp-v3
+    volumes:
+      - ../src/v2:/var/www/html
+      - sigesp-data-v3:/var/lib/postgresql/8.4/main
+    ports:
+      - "8003:80"
+
+volumes:
+  sigesp-data-v3:
