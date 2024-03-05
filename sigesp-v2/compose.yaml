@@ -10,6 +10,9 @@ services:
       - sigesp-data-v2:/var/lib/postgresql/8.4/main
     ports:
       - "8002:80"
+    env_file:
+      - path: ../.env
+        required: false
 
 volumes:
   sigesp-data-v2:

@@ -113,7 +113,6 @@ RUN set -eux; \
         echo "\tDocumentRoot /var/www/html"; \
         echo '\tDirectoryIndex disabled'; \
         echo '\tDirectoryIndex index.php index.html'; \
-        echo "\tSetEnv LD_PRELOAD /usr/local/lib/faketime/libfaketime.so.1"; \
         echo "\t<Directory /var/www/html>"; \
         echo "\t\tOptions Indexes FollowSymLinks MultiViews"; \
         echo "\t\tAllowOverride All"; \
@@ -284,6 +283,10 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends proftpd; \
     rm -rf /var/lib/apt/lists/*
+
+RUN set -eux; \
+    echo "export LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1" >> "$APACHE_ENVVARS"; \
+    echo 'export FAKETIME="$FAKETIME"' >> "$APACHE_ENVVARS"
 
 WORKDIR /var/www/html
 STOPSIGNAL SIGINT
