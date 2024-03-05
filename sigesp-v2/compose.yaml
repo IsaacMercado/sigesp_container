@@ -10,9 +10,6 @@ services:
       - sigesp-data-v2:/var/lib/postgresql/8.4/main
     ports:
       - "8002:80"
-    environment:
-      - LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1
-      - FAKETIME=2023-12-31 08:30:00
 
 volumes:
   sigesp-data-v2:
