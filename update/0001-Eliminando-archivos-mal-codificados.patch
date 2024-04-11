@@ -1,0 +1,109 @@
+From 70f6d30a7fdce4bc09a5b6f2d537ff80a825d0b6 Mon Sep 17 00:00:00 2001
+From: IsaacMercado <mercadoluis095@gmail.com>
+Date: Mon, 16 Oct 2023 09:26:52 -0400
+Subject: [PATCH 1/2] Eliminando archivos mal codificados
+
+
+diff --git a/scb/sigesp_apertura_ctabco.php b/scb/sigesp_apertura_ctabco.php
+deleted file mode 100755
+index cf1564374e84631eeb496e1def8897c390efa733..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 13330
+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
+
+diff --git a/scb_/sigesp_apertura_ctabco.php b/scb_/sigesp_apertura_ctabco.php
+deleted file mode 100755
+index cf1564374e84631eeb496e1def8897c390efa733..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 13330
+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
+
+-- 
+2.34.1
+

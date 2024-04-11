@@ -1,0 +1,945 @@
+From 70f6d30a7fdce4bc09a5b6f2d537ff80a825d0b6 Mon Sep 17 00:00:00 2001
+From: IsaacMercado <mercadoluis095@gmail.com>
+Date: Mon, 16 Oct 2023 09:26:52 -0400
+Subject: [PATCH 1/2] Eliminando archivos mal codificados
+
+
+diff --git a/scb/sigesp_apertura_ctabco.php b/scb/sigesp_apertura_ctabco.php
+deleted file mode 100755
+index cf1564374e84631eeb496e1def8897c390efa733..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 13330
+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
+
+diff --git a/scb_/sigesp_apertura_ctabco.php b/scb_/sigesp_apertura_ctabco.php
+deleted file mode 100755
+index cf1564374e84631eeb496e1def8897c390efa733..0000000000000000000000000000000000000000
+GIT binary patch
+literal 0
+HcmV?d00001
+
+literal 13330
+zcmeHNU2j`O5S`bH#DBQ5BI2}Z((;1T)>M^~sz{}UroaP2mg6|7k>jL}8<3zsm_GrW
+zv*XRq-reiiX_8uCS^nCO+1c5dGjn(5pT8f=6FHT)c+2OXNg+KMN>|SCD)Ao3k@WF>
+zDjl?*;`dl4@*baEwDj=1EBp99na=)W`d!F5dd8r!CVTR|ypTtko<mR?WqSso*pXwb
+zd{onacG2H)T#YefjIl*#odfVP$<jH%3LVk@t{I`S2(*+_?w6d67L-j>HZHgd5-PxN
+zU*16m1NW=rDEH9Tl!k2KwGHmxIyv^i<F+}QjvQk25Uo6sxaSNshnTIW+Q8aD_BXYr
+zmyb$^8gskrA43i!tlE`d@#{8Lk8NXs)oD5J-HF`p-Vd?kp3{@Mb=M#fT5<=U<g<m(
+zzWkPGal8v^t<{`0%%twOVAC<Zd-64QehB(Hg8UE}#?a&{jR`m%U_R%lm8-r6o&o}O
+zFpj$1#EMFJ7B$5g;?#Tj-R$wI^pv|;v-4cWW2k@g>^q!W9aVp>^H5W)%u}jb$836v
+zhCJmCuzMHpJ^4mn$xHbexJ2(j#61SS5Wi@14fzF{640{1Tzk$j%I10W7<`7AL~^1a
+zPrGn0kH;S_aMZVW*#~6yn%D)eJ?H{C9)o9cO2njRp*9Wi?xC&c^l;>~jGj+>58&6j
+z(DqI2#kZ=rW9tTN$8%s2eOvB8vp@aI^HzdSz6$VE$}>oV_V0ZdeNP|lltPeIiMAnH
+zgS<+IY9(4J364*tM@{gn^31s2Yf#eD9ARdTE^&k_k&C{=Zk`zD=qh8U35q7F#S@I%
+zL@zxbIr1Y%n8m1M>~?24;r^*lmXkxb<1@_OO1R#2``kw#=}})w=sN$Eu!9kBbPK;;
+zpikqVQrh^vkN&?h)Sh8wMdyc@^+3Lax4w_>ZTz~A*H;w{FVM5S1R8V)Tm&huK_>gK
+z3`TWBNSIP-0rB~dr)T{H`KLsJMvbOYRJ}UJT%H!?8cvaV)pqA}0Q&4@3*}B7p>>~6
+z+nSioxwJ#IZgO)5n~eDlmaJ$+M2k_0Q6Vvn`b<uUX^LejCG|uP(N9c#fp=TpIG$h0
+zQ}=%lExSOGJ^4Yt#kcO0pXXDH*?{KWci8b1qsr+B?lr7O+j$1dc?BA@jGmLbr4o<*
+zNuFcX*LbVN_<giw9sA|!cs$entz+C%VEN9)c*Qv#?~#u3(DrzIK)`r>Xt(2IPMcFX
+zpFqleXwN$2^&Foi_WJsQo6t)h>wCH5b;z=~*bNbAGL`gWL>KGmS;u)<-CTo)g@~V8
+zQ`HI^lQ2f1b`S9;1~Cp%iK;fl(Z~Sy&~#(cHLR^{M4D>72mR*!c2@PWjH>)IlYJ)2
+z@6h{A^##=k?i@SjlOCT;G_v5{t@TvpM0Dm;W7j<~de3b&fbjw&%n8oAfzu<lE2=Vf
+zFJa3XL0aUP$8VF`R>ECg7FHKREK#^K=1B*B<8#rorS_a4Zq7?ob%K&)WJgVWi}TPK
+zlwMUUVm&A%UQu;{*4%RzOb-^2apJIwd?<aQSisdPh7nWpnnj<<7{JF_92sO#$Ort7
+z+pN^QR8pPYa9)g__qsd*pIDBdU9l&a<pW}Q#+KWHylx)H7en$wmKV#dPEa3i2FrtI
+zvRF<}ks>)Yx@u9E+2#CLUI3}Cg64TEo;Px$WUDBf$FclQZy(bO`10jKbz+v)R(kIk
+z+0!%fIChiho~}9@;XCk&Rm58y^{<NiRViADdY@oDg_XIN=Jk7p9Y|y!mie(y2P@A&
+zRMDrNt48@&BZyo6nIiQJJMtY6ygtfrqnGz7o`S{xx;TD?{%I_}LVxO^MWS3>pW?8`
+zt51pkjPnDs-7d~kYJ6FXULK53y<myxa~1b{w6rK5-^qN;9gfun>V{wKdeMCq+3VfP
+zGTzp#B75HS%yVy(dXzY_kFovJ$Mx5Z_W>)?xZ2-e#WLW%Pz!I~$>c|<2jn>Bk?P0Q
+zOY>3W&n$%=o>=W&TFOgxgy*KpOLg2;xUpF_?)P$Tbkt>%c?3$~WVG%>D|dL;YUL3)
+zurjl8RQe1ZpR{Jzm<{u^t2Z7o<v895D|vo>B)eEnmsucY4}G5S#942e(WuMl`qjhU
+zyrlnoSzTs6L-uWz)&2iwb;C`-$7V^ZHg9uY*8Yh-TvhWW=}o*ww3-LxtpGEn`j7c|
+zU%kK@0H0&!ebBvW{zI`y?-Sx2D`)84f@V`aZEe#`zsCSYsJc9?t$6g_bouV?SDDXc
+zxg}q=JM!Rhb2lWx|53MZ<8~xoQKM&8nfaQq{5ghv>j~~oSQo^*0%nYL9<%%T_}!ur
+z_Za6~;%YVKb1ffQ|K?j#O016QxEpHLL=2N$aY~&P))Q1f@Oh(+Pu6I$)}WC=y=pbD
+zaz8tYZlUHR$ET0Ht5K}KeVRQhj_B(n-$hqnj1sG$S!GI}Lb(qh?+4gz`2X0QK=oAY
+zh`Vw(s>q;Bs~V{~Nw1Z9A|J8a8`-*3{?X|KGwyZg%jneaC9W?aUx5$nwS1ha&s2-^
+zVQDp7#p5gv6cM!2MLl^clNO}jaP>XZ*i!z)i~idC{<;~g`B`iR>wq|et9*f%UB&K;
+znS=(S2^|~z`S|XWQogKz&pl_@3a%3QVy$LrW^`l?>$2Ku(^Xz=x_T|$CvP$j9M`+R
+zD`JLL9FkvFwkXG?LzEI@+m)x+H?9(-%J0qdM_rqjyO+@SqeP}x;gPu{%CPOuQELDf
+rk=_nC3HR*RC%bw1%1bTBRZeE{DO)eD*x*0yxY;-Po`!xufzJI4^*4Y$
+
+-- 
+2.34.1
+
+
+From f1ae90c8309008a985e135ecdcc591a0c96f5c46 Mon Sep 17 00:00:00 2001
+From: IsaacMercado <mercadoluis095@gmail.com>
+Date: Mon, 16 Oct 2023 09:27:36 -0400
+Subject: [PATCH 2/2] Corrigiendo errores
+
+
+diff --git a/base/librerias/php/phpMailer_v2.1/class.pop3.php b/base/librerias/php/phpMailer_v2.1/class.pop3.php
+index cac5dfe..8f2b31c 100755
+--- a/base/librerias/php/phpMailer_v2.1/class.pop3.php
++++ b/base/librerias/php/phpMailer_v2.1/class.pop3.php
+@@ -315,7 +315,7 @@ class POP3 {
+    * @param integer $size
+    * @return string
+    */
+-  private public function getResponse ($size = 128) {
++  private function getResponse ($size = 128) {
+     $pop3_response = fgets($this->pop_conn, $size);
+ 
+     return $pop3_response;
+diff --git a/mis/sigesp_mis_pdt_sobval.php b/mis/sigesp_mis_pdt_sobval.php
+index f74d108..495d74b 100755
+--- a/mis/sigesp_mis_pdt_sobval.php
++++ b/mis/sigesp_mis_pdt_sobval.php
+@@ -47,7 +47,7 @@
+ 				"   AND sob_valuacion.codvan='".$as_codval."' ".
+ 				"   AND sob_valuacion.codcon='".$as_codcom."' ".
+ 				"	AND sob_valuacion.codemp = sob_contrato.codemp ".
+-				"	AND sob_valuacion.codcon = sob_contrato.codcon ";.
++				"	AND sob_valuacion.codcon = sob_contrato.codcon ".
+ 				"	AND sob_contrato.codemp = sob_asignacion.codemp ".
+ 				"	AND sob_contrato.codasi = sob_asignacion.codasi ";
+ 		$rs_data=$io_sql->select($ls_sql);
+diff --git a/rpc/correo.php b/rpc/correo.php
+index 007fafc..78253ce 100755
+--- a/rpc/correo.php
++++ b/rpc/correo.php
+@@ -82,7 +82,7 @@
+     //if (mail("yessimoreno@hotmail.com","asuntillo","Este es el cuerpo del mensaje"))
+ 	if (mail($ls_destinatario,$ls_asunto,$ls_cuerpo))
+     {
+-		print "Correo Enviado"
++		print "Correo Enviado";
+ 	}
+ 	else
+ 	{
+diff --git a/rpc/enviocorreo.php b/rpc/enviocorreo.php
+index 647ed44..f731480 100755
+--- a/rpc/enviocorreo.php
++++ b/rpc/enviocorreo.php
+@@ -46,13 +46,13 @@
+ 	$headers .= "Reply-To: yessimorenos@yahoo.es\r\n"; 
+ 
+ 	//ruta del mensaje desde origen a destino 
+-	$headers .= "Return-path: yessimoreno@hotmail.com\r\n" 
++	$headers .= "Return-path: yessimoreno@hotmail.com\r\n";
+ 
+ 	//direcciones que recibián copia 
+ 	$headers .= "Cc: yessimoreno@hotmail.com\r\n"; 
+ 
+ 	//direcciones que recibirán copia oculta 
+-	$headers .= "Bcc: yessimoreno@hotmail.com\r\n"; */
++	$headers .= "Bcc: yessimoreno@hotmail.com\r\n";
+ 
+ 	if (mail($destinatario,$asunto,$cuerpo,$headers))
+ 	{
+diff --git a/rpc/sigesp_rpc_c_correo.php b/rpc/sigesp_rpc_c_correo.php
+index 5b2700e..e92b462 100755
+--- a/rpc/sigesp_rpc_c_correo.php
++++ b/rpc/sigesp_rpc_c_correo.php
+@@ -82,7 +82,7 @@
+     //if (mail("yessimoreno@hotmail.com","asuntillo","Este es el cuerpo del mensaje"))
+ 	if (mail($ls_destinatario,$ls_asunto,$ls_cuerpo))
+     {
+-		print "Correo Enviado"
++		print "Correo Enviado";
+ 	}
+ 	else
+ 	{
+diff --git a/scb/reportes/scb_report_conciliacionbsf.php b/scb/reportes/scb_report_conciliacionbsf.php
+index fb69765..9bd7da3 100755
+--- a/scb/reportes/scb_report_conciliacionbsf.php
++++ b/scb/reportes/scb_report_conciliacionbsf.php
+@@ -416,4 +416,5 @@ class scb_report_conciliacionbsf
+ 
+     /*$ls_sql="SELECT (monto-monret) as monto,codope,estmov
+ 			 FROM  scb_movbco 
+-			 WHERE codban='".$as_codban."' AND ctaban='".$as_ctaban."' AND  
+\ No newline at end of file
++			 WHERE codban='".$as_codban."' AND ctaban='".$as_ctaban."' AND  */
++	}
+\ No newline at end of file
+diff --git a/scb/sigesp_apertura_ctabco.php b/scb/sigesp_apertura_ctabco.php
+new file mode 100644
+index 0000000..663395e
+--- /dev/null
++++ b/scb/sigesp_apertura_ctabco.php
+@@ -0,0 +1,166 @@
++<?php
++class sigesp_apertura_ctabco
++{
++	var $SQL;
++	var $fun;
++	var $io_msg;
++	var $is_msg_error;
++	var $dat;
++	var $ds_data;
++
++
++	function sigesp_apertura_ctabco()
++	{
++		require_once("../shared/class_folder/class_sql.php");
++		require_once("../shared/class_folder/class_funciones.php");
++		require_once("../shared/class_folder/class_mensajes.php");
++		require_once("../shared/class_folder/sigesp_include.php");
++		require_once("../shared/class_folder/class_fecha.php");
++		$sig_inc = new sigesp_include();
++		$con = $sig_inc->uf_conectar();
++		$this->io_sql = new class_sql($con);
++		$this->SQL_aux = new class_sql($con);
++		$this->io_funcion = new class_funciones();
++		$this->io_fecha = new class_fecha();
++		$this->io_msg = new class_mensajes();
++		$this->dat = $_SESSION["la_empresa"];
++		$this->ds_data = new class_datastore();
++	}
++
++	function uf_calcular_saldo_colocacion($as_codban, $as_ctaban)
++	{
++		/*------------------------------------------------------------------
++					 - Funcion que calcula el saldo de las colocaciones
++					 - Retorna el saldo si se ejecuto correctamente, de lo contrario
++					   retorna falso.
++					 - Elaborado por Ing. Laura Cabré.
++					 - Fecha: 12/01/2007			
++				 //-----------------------------------------------------------------*/
++		$lb_valido = false;
++		//Calculando el monto de los Creditos positivos (no anulados)
++		$ls_codemp = $this->dat["codemp"];
++		$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++					FROM scb_movcol
++					WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban' AND 
++					(codope='CH' OR codope='ND' OR codope='RE')	AND estcol<>'A'";
++		$rs_datos = $this->io_sql->select($ls_sql);
++		if (($rs_datos == false)) {
++			$lb_valido = false;
++			$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++			print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++		} else {
++			if ($row = $this->io_sql->fetch_row($rs_datos)) {
++				$ldec_creditostmp = $row["monto"];
++				$lb_valido = true;
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Creditos negativos (anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban' AND
++						(codope='CH' OR codope='ND' OR codope='RE') AND estcol='A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_creditos_negativostmp = $row["monto"];
++					$lb_valido = true;
++				}
++
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Debitos positivos (no anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'
++						AND (codope='DP' OR codope='NC') AND estcol<>'A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_debitostmp = $row["monto"];
++					$lb_valido = true;
++				}
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Debitos negativos (anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'
++						AND (codope='DP' OR codope='NC') AND estcol='A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_debitos_negativostmp = $row["monto"];
++					$lb_valido = true;
++				}
++			}
++		}
++		if ($lb_valido) {
++			$ldec_debitos = $ldec_debitostmp - $ldec_debitos_negativostmp;
++			$ldec_creditos = $ldec_creditostmp - $ldec_creditos_negativostmp;
++			$ldec_saldo = $ldec_creditos - $ldec_debitos;
++			return $ldec_saldo;
++		} else {
++			return $lb_valido;
++		}
++	}
++
++	function uf_calcular_saldo_documento($as_codban, $as_ctaban)
++	{
++		/*------------------------------------------------------------------
++				  - Funcion que calcula el salso de las colocaciones
++				  - Retorna el saldo si se ejecuto correctamente, de lo contrario
++					retorna falso.
++				  - Elaborado por Ing. Laura Cabré.
++				  - Fecha: 12/01/2007			
++			  //-----------------------------------------------------------------*/
++		$ls_codemp = $this->dat["codemp"];
++		$lb_valido = false;
++		$ls_sql = "SELECT codope AS operacion, (monto-monret) AS monto, estmov AS estado
++					FROM scb_movbco
++					WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'";
++		$rs_datos = $this->io_sql->select($ls_sql);
++		if (($rs_datos == false)) {
++			$lb_valido = false;
++			$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++			print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++		} else {
++			if ($row = $this->io_sql->fetch_row($rs_datos)) {
++				$la_data = $this->io_sql->obtener_datos($rs_datos);
++				$this->ds_data->data = $la_data;
++				$li_total = $this->ds_data->getRowCount("operacion");
++				$ldec_debitostmp = 0;
++				$ldec_creditostmp = 0;
++				$ldec_debitos_negativostmp = 0;
++				$ldec_creditos_negativostmp = 0;
++				for ($li_i = 1; $li_i <= $li_total; $li_i++) {
++					$ls_operacion = $this->ds_data->getValue("operacion", $li_i);
++					$ls_estado = $this->ds_data->getValue("estado", $li_i);
++					if ((($ls_operacion == "CH") || ($ls_operacion == "ND") || ($ls_operacion == "RE")) && ($ls_estado <> "A")) {
++						// Sum monto for (operacion$"CH,ND,RE") and (Estado <> "A") to nCreditosTmp
++						// Sum monto for (operacion$"CH,ND,RE") and (Estado = "A") to nCreditosTmpNeg
++						// Sum monto for (operacion$"DP,NC") and (Estado <> "A") to nDebitosTmp
++						// Sum monto for (operacion$"DP,NC") and (Estado = "A") to nDebitosTmpNeg
++
++					}
++				}
++
++			}
++		}
++	}
++}
++?>
+\ No newline at end of file
+diff --git a/scb_/reportes/scb_report_conciliacionbsf.php b/scb_/reportes/scb_report_conciliacionbsf.php
+index fb69765..9bd7da3 100755
+--- a/scb_/reportes/scb_report_conciliacionbsf.php
++++ b/scb_/reportes/scb_report_conciliacionbsf.php
+@@ -416,4 +416,5 @@ class scb_report_conciliacionbsf
+ 
+     /*$ls_sql="SELECT (monto-monret) as monto,codope,estmov
+ 			 FROM  scb_movbco 
+-			 WHERE codban='".$as_codban."' AND ctaban='".$as_ctaban."' AND  
+\ No newline at end of file
++			 WHERE codban='".$as_codban."' AND ctaban='".$as_ctaban."' AND  */
++	}
+\ No newline at end of file
+diff --git a/scb_/sigesp_apertura_ctabco.php b/scb_/sigesp_apertura_ctabco.php
+new file mode 100644
+index 0000000..663395e
+--- /dev/null
++++ b/scb_/sigesp_apertura_ctabco.php
+@@ -0,0 +1,166 @@
++<?php
++class sigesp_apertura_ctabco
++{
++	var $SQL;
++	var $fun;
++	var $io_msg;
++	var $is_msg_error;
++	var $dat;
++	var $ds_data;
++
++
++	function sigesp_apertura_ctabco()
++	{
++		require_once("../shared/class_folder/class_sql.php");
++		require_once("../shared/class_folder/class_funciones.php");
++		require_once("../shared/class_folder/class_mensajes.php");
++		require_once("../shared/class_folder/sigesp_include.php");
++		require_once("../shared/class_folder/class_fecha.php");
++		$sig_inc = new sigesp_include();
++		$con = $sig_inc->uf_conectar();
++		$this->io_sql = new class_sql($con);
++		$this->SQL_aux = new class_sql($con);
++		$this->io_funcion = new class_funciones();
++		$this->io_fecha = new class_fecha();
++		$this->io_msg = new class_mensajes();
++		$this->dat = $_SESSION["la_empresa"];
++		$this->ds_data = new class_datastore();
++	}
++
++	function uf_calcular_saldo_colocacion($as_codban, $as_ctaban)
++	{
++		/*------------------------------------------------------------------
++					 - Funcion que calcula el saldo de las colocaciones
++					 - Retorna el saldo si se ejecuto correctamente, de lo contrario
++					   retorna falso.
++					 - Elaborado por Ing. Laura Cabré.
++					 - Fecha: 12/01/2007			
++				 //-----------------------------------------------------------------*/
++		$lb_valido = false;
++		//Calculando el monto de los Creditos positivos (no anulados)
++		$ls_codemp = $this->dat["codemp"];
++		$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++					FROM scb_movcol
++					WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban' AND 
++					(codope='CH' OR codope='ND' OR codope='RE')	AND estcol<>'A'";
++		$rs_datos = $this->io_sql->select($ls_sql);
++		if (($rs_datos == false)) {
++			$lb_valido = false;
++			$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++			print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++		} else {
++			if ($row = $this->io_sql->fetch_row($rs_datos)) {
++				$ldec_creditostmp = $row["monto"];
++				$lb_valido = true;
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Creditos negativos (anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban' AND
++						(codope='CH' OR codope='ND' OR codope='RE') AND estcol='A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_creditos_negativostmp = $row["monto"];
++					$lb_valido = true;
++				}
++
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Debitos positivos (no anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'
++						AND (codope='DP' OR codope='NC') AND estcol<>'A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_debitostmp = $row["monto"];
++					$lb_valido = true;
++				}
++			}
++		}
++		if ($lb_valido) //  Calculando el monto de los Debitos negativos (anulados)
++		{
++			$ls_sql = "SELECT COALESCE(SUM(monmovcol),0) AS monto
++						FROM scb_movcol
++						WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'
++						AND (codope='DP' OR codope='NC') AND estcol='A'";
++			$rs_datos = $this->io_sql->select($ls_sql);
++			if (($rs_datos == false)) {
++				$lb_valido = false;
++				$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++				print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++			} else {
++				if ($row = $this->io_sql->fetch_row($rs_datos)) {
++					$ldec_debitos_negativostmp = $row["monto"];
++					$lb_valido = true;
++				}
++			}
++		}
++		if ($lb_valido) {
++			$ldec_debitos = $ldec_debitostmp - $ldec_debitos_negativostmp;
++			$ldec_creditos = $ldec_creditostmp - $ldec_creditos_negativostmp;
++			$ldec_saldo = $ldec_creditos - $ldec_debitos;
++			return $ldec_saldo;
++		} else {
++			return $lb_valido;
++		}
++	}
++
++	function uf_calcular_saldo_documento($as_codban, $as_ctaban)
++	{
++		/*------------------------------------------------------------------
++				  - Funcion que calcula el salso de las colocaciones
++				  - Retorna el saldo si se ejecuto correctamente, de lo contrario
++					retorna falso.
++				  - Elaborado por Ing. Laura Cabré.
++				  - Fecha: 12/01/2007			
++			  //-----------------------------------------------------------------*/
++		$ls_codemp = $this->dat["codemp"];
++		$lb_valido = false;
++		$ls_sql = "SELECT codope AS operacion, (monto-monret) AS monto, estmov AS estado
++					FROM scb_movbco
++					WHERE codemp='$ls_codemp' AND codban='$as_codban' AND ctaban='$as_ctaban'";
++		$rs_datos = $this->io_sql->select($ls_sql);
++		if (($rs_datos == false)) {
++			$lb_valido = false;
++			$this->is_msg_error = $this->io_funcion->uf_convertirmsg($this->io_sql->message);
++			print "Error en uf_calcular_saldo_colocacion " . $this->is_msg_error;
++		} else {
++			if ($row = $this->io_sql->fetch_row($rs_datos)) {
++				$la_data = $this->io_sql->obtener_datos($rs_datos);
++				$this->ds_data->data = $la_data;
++				$li_total = $this->ds_data->getRowCount("operacion");
++				$ldec_debitostmp = 0;
++				$ldec_creditostmp = 0;
++				$ldec_debitos_negativostmp = 0;
++				$ldec_creditos_negativostmp = 0;
++				for ($li_i = 1; $li_i <= $li_total; $li_i++) {
++					$ls_operacion = $this->ds_data->getValue("operacion", $li_i);
++					$ls_estado = $this->ds_data->getValue("estado", $li_i);
++					if ((($ls_operacion == "CH") || ($ls_operacion == "ND") || ($ls_operacion == "RE")) && ($ls_estado <> "A")) {
++						// Sum monto for (operacion$"CH,ND,RE") and (Estado <> "A") to nCreditosTmp
++						// Sum monto for (operacion$"CH,ND,RE") and (Estado = "A") to nCreditosTmpNeg
++						// Sum monto for (operacion$"DP,NC") and (Estado <> "A") to nDebitosTmp
++						// Sum monto for (operacion$"DP,NC") and (Estado = "A") to nDebitosTmpNeg
++
++					}
++				}
++
++			}
++		}
++	}
++}
++?>
+\ No newline at end of file
+diff --git a/scg/reportes/sigesp_class_rep_ahorro_inversion.php b/scg/reportes/sigesp_class_rep_ahorro_inversion.php
+index 98e9ab4..54b124b 100755
+--- a/scg/reportes/sigesp_class_rep_ahorro_inversion.php
++++ b/scg/reportes/sigesp_class_rep_ahorro_inversion.php
+@@ -677,21 +677,21 @@ class sigesp_class_rep_ahorro_inversion
+ 		$la_cuentas[648]= '2230233200';
+ 		$la_cuentas[649]= '2230234000';
+ 		$la_cuentas[650]= '2230234100';
+-		$la_cuentas[651]= '2.2.3.0.2.3.42.00 Disminución de otros fondos de terceros
+-2.2.3.0.2.3.50.00 Disminución de otros pasivos a corto plazo
+-2.2.3.0.2.3.60.00 Disminución de otros pasivos a mediano y largo plazo
+-2.2.3.0.2.3.70.00 Disminución de obligaciones de ejercicios anteriores
+-2.2.3.0.4.0.00.00 DISMINUCION DEL PATRIMONIO
+-2.2.3.0.4.1.00.00 Disminución del capital
+-2.2.3.0.4.1.10.00 Disminución del capital fiscal e institucional
+-2.2.3.0.4.1.20.00 Disminución de aportes por capitalizar
+-2.2.3.0.4.2.00.00 Disminución de reservas
+-2.2.3.0.4.2.10.00 Disminución de reservas
+-2.2.3.0.4.3.00.00 Ajustes por inflación
+-2.2.3.0.4.3.10.00 Ajustes por inflación
+-2.2.3.0.4.4.00.00 Disminución de resultados
+-2.2.3.0.4.4.10.00 Disminución de resultados acumulados
+-2.2.3.0.4.4.20.00
++// 		$la_cuentas[651]= '2.2.3.0.2.3.42.00 Disminución de otros fondos de terceros
++// 2.2.3.0.2.3.50.00 Disminución de otros pasivos a corto plazo
++// 2.2.3.0.2.3.60.00 Disminución de otros pasivos a mediano y largo plazo
++// 2.2.3.0.2.3.70.00 Disminución de obligaciones de ejercicios anteriores
++// 2.2.3.0.4.0.00.00 DISMINUCION DEL PATRIMONIO
++// 2.2.3.0.4.1.00.00 Disminución del capital
++// 2.2.3.0.4.1.10.00 Disminución del capital fiscal e institucional
++// 2.2.3.0.4.1.20.00 Disminución de aportes por capitalizar
++// 2.2.3.0.4.2.00.00 Disminución de reservas
++// 2.2.3.0.4.2.10.00 Disminución de reservas
++// 2.2.3.0.4.3.00.00 Ajustes por inflación
++// 2.2.3.0.4.3.10.00 Ajustes por inflación
++// 2.2.3.0.4.4.00.00 Disminución de resultados
++// 2.2.3.0.4.4.10.00 Disminución de resultados acumulados
++// 2.2.3.0.4.4.20.00
+ 			
+ 		
+ 		
+diff --git a/scg/reportes/sigesp_scg_comparados.php b/scg/reportes/sigesp_scg_comparados.php
+index f6617cc..1cbbe59 100755
+--- a/scg/reportes/sigesp_scg_comparados.php
++++ b/scg/reportes/sigesp_scg_comparados.php
+@@ -95,111 +95,113 @@ class sigesp_scg_comparados
+ 			$li_nivel=$this->int_scg->uf_scg_obtener_nivel($ls_cuenta);
+ 			if($row=$this->io_sql->fetch_row($rs_data))
+ 			{			
+-				if(!$this->uf_calcular_saldo($ls_cuenta,$ld_fecdesde,$ld_fechasta, &$ldec_el_saldo,$ldec_dh);
++				if(!$this->uf_calcular_saldo($ls_cuenta,$ld_fecdesde,$ld_fechasta, &$ldec_el_saldo,$ldec_dh));
+ 				{return false;}
+ 				
+ 		
+ 
+ 		
+-			cAux=sc_cuentas.sc_cuenta
++		// 	cAux=sc_cuentas.sc_cuenta
+ 			
+-			*-- Calculo Saldo Anterior
+-			If thisform.oSCG.SALDO_SELECT2(cAux, cMesDesde,cMesHasta, @nDebe, @nHaber)
+-				nDiferencia = nDebe-nHaber
+-			Else
+-				nDiferencia=0
+-			Endif
+-			nSigno=iif (sc_cuentas.sc_cuenta=alltrim(oEmp.gasto),1,-1) &&Saldo Acreedor
++		// 	*-- Calculo Saldo Anterior
++		// 	If thisform.oSCG.SALDO_SELECT2(cAux, cMesDesde,cMesHasta, @nDebe, @nHaber)
++		// 		nDiferencia = nDebe-nHaber
++		// 	Else
++		// 		nDiferencia=0
++		// 	Endif
++		// 	nSigno=iif (sc_cuentas.sc_cuenta=alltrim(oEmp.gasto),1,-1) &&Saldo Acreedor
+ 			
+-			If mdh=.f.
+-				nEl_Saldo  =nEl_Saldo * nSigno
+-			Endif
++		// 	If mdh=.f.
++		// 		nEl_Saldo  =nEl_Saldo * nSigno
++		// 	Endif
+ 		
+-			nDiferencia=nDiferencia * nSigno
++		// 	nDiferencia=nDiferencia * nSigno
+ 		
+-			nPrg_varia=thisform.PRG_MES2p(sc_cuentas.sc_cuenta,pnMesFrom,pnMesTo)
+-			nPrg_acum = thisform.PRG_MES2p(sc_cuentas.sc_cuenta,1,pnMesTo)  			&&--> MODIFICADO CON ANIBAL, 30/05/2005
++		// 	nPrg_varia=thisform.PRG_MES2p(sc_cuentas.sc_cuenta,pnMesFrom,pnMesTo)
++		// 	nPrg_acum = thisform.PRG_MES2p(sc_cuentas.sc_cuenta,1,pnMesTo)  			&&--> MODIFICADO CON ANIBAL, 30/05/2005
+ 		
+-			nResta1=nDiferencia-nPrg_varia
+-			nResta2=nEl_Saldo-nPrg_acum
+-			nPor1= iif (nPrg_varia=0 and nResta1=0,0,iif (nPrg_varia=0 ,100,nResta1/nPrg_varia*100))
+-			nPor2= iif (nPrg_acum =0 and nResta2=0,0,iif (nPrg_acum =0 ,100,nResta2/nPrg_acum*100))
++		// 	nResta1=nDiferencia-nPrg_varia
++		// 	nResta2=nEl_Saldo-nPrg_acum
++		// 	nPor1= iif (nPrg_varia=0 and nResta1=0,0,iif (nPrg_varia=0 ,100,nResta1/nPrg_varia*100))
++		// 	nPor2= iif (nPrg_acum =0 and nResta2=0,0,iif (nPrg_acum =0 ,100,nResta2/nPrg_acum*100))
+ 		
+-			nRepProxMes=thisform.PRG_MESp(sc_cuentas.sc_cuenta,pnMesTo+1,pnMesTo+pnMesProx)
++		// 	nRepProxMes=thisform.PRG_MESp(sc_cuentas.sc_cuenta,pnMesTo+1,pnMesTo+pnMesProx)
+ 		
+-			*---	Cálculo del saldo anterior
+-			*----------------------------------
+-			nMsa=0
+-			nMsa = thisform.c_saldo_anterior(cAux)
+-			If isnull(nMsa)
+-				nMsa=0
+-			Endif
+-			*----------------------------------
+-			*programado  ==>    PRG_VARIA
+-			*ejecutado ====> saldo_ant
++		// 	*---	Cálculo del saldo anterior
++		// 	*----------------------------------
++		// 	nMsa=0
++		// 	nMsa = thisform.c_saldo_anterior(cAux)
++		// 	If isnull(nMsa)
++		// 		nMsa=0
++		// 	Endif
++		// 	*----------------------------------
++		// 	*programado  ==>    PRG_VARIA
++		// 	*ejecutado ====> saldo_ant
+ 		
+-			nVarP = 0 		&&------> variacion periodo
++		// 	nVarP = 0 		&&------> variacion periodo
+ 		
+-			Do case
+-				Case nPrg_varia > 0 and (nPrg_varia > nEl_Saldo)
+-					nVarP = 0 - (nPrg_varia - nEl_Saldo)
+-				Case nPrg_varia = 0 and (nPrg_varia < nEl_Saldo)
+-					nVarP = nEl_Saldo
+-				Case nPrg_varia > 0 and (nPrg_varia < nEl_Saldo)
+-					nVarP = abs(nPrg_varia - nEl_Saldo)
+-				Otherwise
+-					nVarP = nPrg_varia - nEl_Saldo
+-			Endcase
++		// 	Do case
++		// 		Case nPrg_varia > 0 and (nPrg_varia > nEl_Saldo)
++		// 			nVarP = 0 - (nPrg_varia - nEl_Saldo)
++		// 		Case nPrg_varia = 0 and (nPrg_varia < nEl_Saldo)
++		// 			nVarP = nEl_Saldo
++		// 		Case nPrg_varia > 0 and (nPrg_varia < nEl_Saldo)
++		// 			nVarP = abs(nPrg_varia - nEl_Saldo)
++		// 		Otherwise
++		// 			nVarP = nPrg_varia - nEl_Saldo
++		// 	Endcase
+ 		
+-			*periodo ===> PRG_ACUM
+-			*ac. ejecutado ===> s_ant+SALDO_ANT
+-			nVarE = 0 		&&------> variacion acumulados ej
++		// 	*periodo ===> PRG_ACUM
++		// 	*ac. ejecutado ===> s_ant+SALDO_ANT
++		// 	nVarE = 0 		&&------> variacion acumulados ej
+ 		
+-			Do case
+-				Case nPrg_acum>0 and (nPrg_acum>(nMsa+nEl_Saldo))
+-					nVarE = 0-(nPrg_acum-(nMsa+nEl_Saldo))
+-				Case nPrg_acum=0 and (nPrg_acum<(nMsa+nEl_Saldo))
+-					nVarE = nEl_Saldo
+-				Case nPrg_acum>0 and (nPrg_acum<(nMsa+nEl_Saldo))
+-					nVarE = abs(nPrg_acum-(nMsa+nEl_Saldo))
+-				Otherwise
+-					nVarE = nPrg_acum-(nMsa+nEl_Saldo)
+-			Endcase
++		// 	Do case
++		// 		Case nPrg_acum>0 and (nPrg_acum>(nMsa+nEl_Saldo))
++		// 			nVarE = 0-(nPrg_acum-(nMsa+nEl_Saldo))
++		// 		Case nPrg_acum=0 and (nPrg_acum<(nMsa+nEl_Saldo))
++		// 			nVarE = nEl_Saldo
++		// 		Case nPrg_acum>0 and (nPrg_acum<(nMsa+nEl_Saldo))
++		// 			nVarE = abs(nPrg_acum-(nMsa+nEl_Saldo))
++		// 		Otherwise
++		// 			nVarE = nPrg_acum-(nMsa+nEl_Saldo)
++		// 	Endcase
+ 		
+-			Update curReporteCA ;
+-				set	Prg_varia = nPrg_varia,;
+-				Prg_Acum = nPrg_acum,;
+-				Saldo_Ant = nEl_Saldo,;
+-				Diferencia = nDiferencia,;
+-				P1 = nPor1,;
+-				P2 = nPor2,;
+-				RepProxMes = nRepProxMes,;
+-				Nivel = cNivel,;
+-				S_ant =  nMsa, ;
+-				vProg = nVarP,;
+-				vEjec = nVarE ;
+-				where curReporteCA.sc_cuenta=cCuenta
++		// 	Update curReporteCA ;
++		// 		set	Prg_varia = nPrg_varia,;
++		// 		Prg_Acum = nPrg_acum,;
++		// 		Saldo_Ant = nEl_Saldo,;
++		// 		Diferencia = nDiferencia,;
++		// 		P1 = nPor1,;
++		// 		P2 = nPor2,;
++		// 		RepProxMes = nRepProxMes,;
++		// 		Nivel = cNivel,;
++		// 		S_ant =  nMsa, ;
++		// 		vProg = nVarP,;
++		// 		vEjec = nVarE ;
++		// 		where curReporteCA.sc_cuenta=cCuenta
+ 		
+-			If (sc_cuenta=alltrim(oEmp.ingreso) AND status='C')
+-				pnIngresos = (pnIngresos+nDiferencia)
+-			Endif
++		// 	If (sc_cuenta=alltrim(oEmp.ingreso) AND status='C')
++		// 		pnIngresos = (pnIngresos+nDiferencia)
++		// 	Endif
+ 		
+-			If (sc_cuenta=alltrim(oEmp.gasto) AND status='C')
+-				pnGastos = (pnGastos+nDiferencia)
+-			Endif
+-		Else
+-			Update curReporteCA ;
+-				set	Prg_varia = 0,;
+-				Prg_Acum = 0,;
+-				Saldo_Ant = 0,;
+-				Diferencia = 0,;
+-				P1 = 0,;
+-				P2 = 0,;
+-				RepProxMes = 0,;
+-				Nivel = cNivel,;
+-				S_ant =  0 ;
+-				where curReporteCA.sc_cuenta=cCuenta
+-		Endif
++		// 	If (sc_cuenta=alltrim(oEmp.gasto) AND status='C')
++		// 		pnGastos = (pnGastos+nDiferencia)
++		// 	Endif
++		// Else
++		// 	Update curReporteCA ;
++		// 		set	Prg_varia = 0,;
++		// 		Prg_Acum = 0,;
++		// 		Saldo_Ant = 0,;
++		// 		Diferencia = 0,;
++		// 		P1 = 0,;
++		// 		P2 = 0,;
++		// 		RepProxMes = 0,;
++		// 		Nivel = cNivel,;
++		// 		S_ant =  0 ;
++		// 		where curReporteCA.sc_cuenta=cCuenta
++		// Endif
++			}
++		}
+ 	}
+ 	
+ 	function uf_init_array_inversiones()
+diff --git a/sfp/procesos/sigesp_sfp_estprogpr.php b/sfp/procesos/sigesp_sfp_estprogpr.php
+index 5d19efe..bd24020 100755
+--- a/sfp/procesos/sigesp_sfp_estprogpr.php
++++ b/sfp/procesos/sigesp_sfp_estprogpr.php
+@@ -288,10 +288,7 @@ if($_POST['ObjSon'])
+ 			echo $TextJso;	
+ 		break;
+ 		case 'incluirestpro':
+-<<<<<<< .mine
+-=======
+ 			var_dump($ArObjetos);
+->>>>>>> .r9597
+ 		//	die();
+ 						foreach($ArObjetos as $objeto)
+ 						{
+diff --git a/shared/class_folder/phpMailer_v2.1/class.pop3.php b/shared/class_folder/phpMailer_v2.1/class.pop3.php
+index cac5dfe..8f2b31c 100755
+--- a/shared/class_folder/phpMailer_v2.1/class.pop3.php
++++ b/shared/class_folder/phpMailer_v2.1/class.pop3.php
+@@ -315,7 +315,7 @@ class POP3 {
+    * @param integer $size
+    * @return string
+    */
+-  private public function getResponse ($size = 128) {
++  private function getResponse ($size = 128) {
+     $pop3_response = fgets($this->pop_conn, $size);
+ 
+     return $pop3_response;
+diff --git a/shared/ezpdf_plus/scripts.php b/shared/ezpdf_plus/scripts.php
+index 1f2b357..fe5eeff 100755
+--- a/shared/ezpdf_plus/scripts.php
++++ b/shared/ezpdf_plus/scripts.php
+@@ -26,9 +26,9 @@ $this->objects[$this->currentContents]['c'].="\n".sprintf('%.3f',$resultado['val
+ //$this->currentTextState = $resultado['funcion'];	
+ 
+ 
+-var $ColorTextoActual = array('r'=>-1,'g'=>-1,'b'=>-1);
+-var $nStackColor = 0;
+-var $FuncionTexto = array();
++$ColorTextoActual = array('r'=>-1,'g'=>-1,'b'=>-1);
++$nStackColor = 0;
++$FuncionTexto = array();
+ 
+ 
+ if(isset($this->FuncionTexto['funcion'])){
+@@ -62,7 +62,7 @@ if(isset($this->FuncionTexto['funcion'])){
+ 			  
+ 			  } 	  
+ 			
+-		  }
++		//   }
+ 
+ 
+ function extrae_etiqueta($texto){
+diff --git a/sno/fpdf/pdfcontabla.php b/sno/fpdf/pdfcontabla.php
+index 948f036..57b2f37 100755
+--- a/sno/fpdf/pdfcontabla.php
++++ b/sno/fpdf/pdfcontabla.php
+@@ -6,37 +6,37 @@ class PdfTable extends FPDF
+ function FancyTable($header,$data,$w)
+ {
+     //Colores, ancho de lÃ­nea y fuente en negrita
+-    $this->gt;SetFillColor(0, 126, 216);
+-    $this-&gt;SetTextColor(255);
+-    $this-&gt;SetDrawColor(0, 126, 216);
+-    $this-&gt;SetLineWidth(.3);
+-    $this-&gt;SetFont('','B');
++    $this->SetFillColor(0, 126, 216);
++    $this->SetTextColor(255);
++    $this->SetDrawColor(0, 126, 216);
++    $this->SetLineWidth(.3);
++    $this->SetFont('','B');
+  
+     //Cabecera
+  
+-    for($i=0;$i&lt;count($header);$i++)
+-        $this-&gt;Cell($w[$i],7,$header[$i],1,0,'C',1);
+-    $this-&gt;Ln();
++    for($i=0;$i<count($header);$i++)
++        $this->Cell($w[$i],7,$header[$i],1,0,'C',1);
++    $this->Ln();
+  
+     //RestauraciÃ³n de colores y fuentes
+-    $this-&gt;SetFillColor(224,235,255);
+-    $this-&gt;SetTextColor(0);
+-    $this-&gt;SetFont('');
++    $this->SetFillColor(224,235,255);
++    $this->SetTextColor(0);
++    $this->SetFont('');
+  
+     //Datos
+     $fill=false;
+     foreach($data as $row)
+     {
+-        foreach($w as $k=&gt;$col){
+-            $this-&gt;Cell($col,6,$row[$k],'LR',0,'L',$fill);
++        foreach($w as $k=>$col){
++            $this->Cell($col,6,$row[$k],'LR',0,'L',$fill);
+         }
+  
+-        $this-&gt;Ln();
++        $this->Ln();
+         $fill=!$fill;
+     }
+-    $this-&gt;Cell(array_sum($w),0,'','T');
++    $this->Cell(array_sum($w),0,'','T');
+ }
+ }
+ 
+-Read more at http://tednologia.com/crear-pdf-php/#WQw12E04rGgX2IWu.99 
++// Read more at http://tednologia.com/crear-pdf-php/#WQw12E04rGgX2IWu.99 
+ ?>
+\ No newline at end of file
+diff --git a/spg/sigesp_spg_class_apertura_trim.php b/spg/sigesp_spg_class_apertura_trim.php
+index b1a152f..6a5b28b 100755
+--- a/spg/sigesp_spg_class_apertura_trim.php
++++ b/spg/sigesp_spg_class_apertura_trim.php
+@@ -135,7 +135,6 @@ if (!$this->sig_int->uf_select_comprobante($this->is_codemp,$this->is_procedenci
+ 		 $lb_valido=false;
+ 	}	
+    }
+-}
+ return $lb_valido;
+ }//uf_spg_procesar_apertura
+ 
+diff --git a/spi/sigesp_spi_class_apertura_trim.php b/spi/sigesp_spi_class_apertura_trim.php
+index b1a152f..6a5b28b 100755
+--- a/spi/sigesp_spi_class_apertura_trim.php
++++ b/spi/sigesp_spi_class_apertura_trim.php
+@@ -135,7 +135,6 @@ if (!$this->sig_int->uf_select_comprobante($this->is_codemp,$this->is_procedenci
+ 		 $lb_valido=false;
+ 	}	
+    }
+-}
+ return $lb_valido;
+ }//uf_spg_procesar_apertura
+ 
+-- 
+2.34.1
+
