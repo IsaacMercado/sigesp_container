@@ -13,8 +13,6 @@ DATE=$(date +"%Y%m%d%H%M")
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 BACKUP_DIR="$SCRIPT_DIR/backups"
 
-echo $SCRIPT_DIR $BACKUP_DIR
-
 mkdir -p $BACKUP_DIR
 
 docker exec -t $CONTAINER_NAME su -c "pg_dump $DB_NAME" postgres > $BACKUP_DIR/backup_$DATE.sql
