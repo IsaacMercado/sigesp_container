@@ -8,7 +8,7 @@ if [ -z "$DB_NAME" ]; then
 fi
 
 CONTAINER_NAME="sigesp-v2"
-DATE=$(date +"%Y%m%d%H%M")
+DATE=$(date +"%Y%m%d%H%M%S")
 
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 BACKUP_DIR="$SCRIPT_DIR/backups"
