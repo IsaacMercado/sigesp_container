@@ -287,10 +287,10 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends proftpd; \
     rm -rf /var/lib/apt/lists/*
 
-RUN set -eux; \
-    apt-get update; \
-    apt-get install -y vim ; \
-    rm -rf /var/lib/apt/lists/*
+# RUN set -eux; \
+#     apt-get update; \
+#     apt-get install -y vim ; \
+#     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 STOPSIGNAL SIGINT
