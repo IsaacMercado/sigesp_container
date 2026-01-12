@@ -2,6 +2,9 @@
 
 FROM debian/eol:squeeze-slim
 
+# Ensure Supervisor interpolation %(ENV_FAKETIME)s is always defined.
+ENV FAKETIME=
+
 RUN set -eux; \
     { \
     echo 'Package: php*'; \
@@ -52,10 +55,10 @@ RUN set -eux; \
 RUN echo "listen_addresses = '*'" >> /etc/postgresql/8.4/main/postgresql.conf
 RUN sed -i 's/127.0.0.1\/32/0.0.0.0\/0/g' /etc/postgresql/8.4/main/pg_hba.conf
 
-ENV APACHE_CONFDIR /etc/apache2
-ENV APACHE_ENVVARS $APACHE_CONFDIR/envvars
+ENV APACHE_CONFDIR=/etc/apache2
+ENV APACHE_ENVVARS=$APACHE_CONFDIR/envvars
 
-ENV PHP_INI_DIR /usr/local/etc/php
+ENV PHP_INI_DIR=/usr/local/etc/php
 RUN set -eux; \
     mkdir -p "$PHP_INI_DIR/conf.d"; \
     # allow running as an arbitrary user (https://github.com/docker-library/php/issues/743)
@@ -285,8 +288,9 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    echo "export LD_PRELOAD=/usr/local/lib/faketime/libfaketime.so.1" >> "$APACHE_ENVVARS"; \
-    echo 'export FAKETIME="$FAKETIME"' >> "$APACHE_ENVVARS"
+    apt-get update; \
+    apt-get install -y vim ; \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /var/www/html
 STOPSIGNAL SIGINT
