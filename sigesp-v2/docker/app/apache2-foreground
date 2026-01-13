@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+source /etc/apache2/envvars
+rm -f /var/run/apache2/apache2.pid
+exec apache2 -DFOREGROUND

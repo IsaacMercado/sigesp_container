@@ -1,0 +1,19 @@
+services:
+  sigesp:
+    image: cida/sigesp:v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sigesp-v2
+    volumes:
+      - ../src/v2:/var/www/html
+      - sigesp-data-v2:/var/lib/postgresql/8.4/main
+    ports:
+      - "8002:80"
+      - "6002:5432"
+    env_file:
+      - path: ../.env
+        required: false
+
+volumes:
+  sigesp-data-v2:

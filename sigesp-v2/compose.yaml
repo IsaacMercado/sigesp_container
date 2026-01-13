@@ -1,19 +1,43 @@
+name: sigesp-v2-temp
 services:
-  sigesp:
-    image: cida/sigesp:v2
+  php:
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: sigesp-v2
+      dockerfile: docker/app/Dockerfile
+    container_name: sigesp-php-v2-temp
     volumes:
       - ../src/v2:/var/www/html
-      - sigesp-data-v2:/var/lib/postgresql/8.4/main
     ports:
-      - "8002:80"
-      - "6002:5432"
+      - "8003:80"
+    depends_on:
+      - postgres
+    environment:
+      - LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1
+      - LANG=es_VE.iso885915
+      - LC_ALL=es_VE.iso885915
+      - LC_CTYPE=es_VE.iso885915
+    env_file:
+      - path: ../.env
+        required: false
+
+  postgres:
+    build:
+      context: .
+      dockerfile: docker/db/Dockerfile
+    container_name: sigesp-postgres-v2-temp
+    command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
+    volumes:
+      - sigesp-data-v2-1:/var/lib/postgresql/data
+    ports:
+      - "6003:5432"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      # TZ will be loaded from env_file
+      # Path check inside Debian Jessie/Bookworm usually:
+      LD_PRELOAD: /usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1
     env_file:
       - path: ../.env
         required: false
 
 volumes:
-  sigesp-data-v2:
+  sigesp-data-v2-1:
