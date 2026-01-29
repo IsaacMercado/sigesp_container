@@ -1,19 +1,22 @@
-FROM postgres:9.2
+FROM postgres:9.6
 
-# Fix sources for Debian Jessie (EOL)
+# Fix sources for Debian Stretch (EOL)
 # Remove dead postgres repos
 RUN rm -rf /etc/apt/sources.list.d/*
 
-RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie main" > /etc/apt/sources.list && \
-    echo "deb [check-valid-until=no] http://archive.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian stretch main" > /etc/apt/sources.list && \
+    echo "deb [check-valid-until=no] http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
 
 RUN echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until && \
     echo 'Acquire::AllowInsecureRepositories "true";' >> /etc/apt/apt.conf.d/99allow-insecure
 
 # Install libfaketime and locales
-RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
-    libfaketime \
-    locales \
+RUN apt-get update \
+    # && apt-get upgrade -y \
+    && apt-get install -y --force-yes --no-install-recommends \
+        libfaketime \
+        locales \
+        vim \
     && rm -rf /var/lib/apt/lists/*
 
 # Generate Locale

@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:labs
 FROM debian:bookworm-slim
 
 # prevent Debian's PHP packages from being installed
@@ -151,14 +150,14 @@ RUN wget --no-check-certificate http://archive.debian.org/debian-security/pool/u
 # Compile Postgres Client libraries (or full server just for libs) 
 # Note: Separated services, but we need libs for PHP build.
 RUN set -eux; \
-    wget -O postgresql.tar.bz2 https://ftp.postgresql.org/pub/source/v9.2.24/postgresql-9.2.24.tar.bz2; \
+    wget -O postgresql.tar.bz2 https://ftp.postgresql.org/pub/source/v9.6.24/postgresql-9.6.24.tar.bz2; \
     tar -xjf postgresql.tar.bz2 -C /usr/src; \
     rm postgresql.tar.bz2; \
-    cd /usr/src/postgresql-9.2.24; \
-    ./configure --prefix=/usr/local/pgsql-9.2 --without-readline; \
+    cd /usr/src/postgresql-9.6.24; \
+    ./configure --prefix=/usr/local/pgsql-9.6 --without-readline; \
     make -j$(nproc); \
     make install; \
-    rm -rf /usr/src/postgresql-9.2.24
+    rm -rf /usr/src/postgresql-9.6.24
 
 RUN set -eux; \
     wget https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libxml2/2.8.0+dfsg1-5ubuntu2.5/libxml2_2.8.0+dfsg1.orig.tar.gz -O libxml2.tar.gz; \
@@ -237,8 +236,8 @@ RUN set -eux; \
         --with-imap-ssl \
         --with-pdo-sqlite=/usr \
         --with-sqlite3=/usr \
-        --with-pgsql=/usr/local/pgsql-9.2 \
-        --with-pdo-pgsql=/usr/local/pgsql-9.2 \
+        --with-pgsql=/usr/local/pgsql-9.6 \
+        --with-pdo-pgsql=/usr/local/pgsql-9.6 \
         --enable-option-checking=fatal \
         --with-mhash \
         --with-pic \

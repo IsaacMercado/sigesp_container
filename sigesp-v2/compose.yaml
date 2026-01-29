@@ -32,8 +32,13 @@ services:
       - "6003:5432"
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
+      # Argumentos para initdb: establecer encoding LATIN9 y la locale generada en la imagen
+      POSTGRES_INITDB_ARGS: "--encoding=LATIN9 --locale=es_VE.ISO-8859-15"
+      # Ajustar variables de entorno para que coincidan con la locale usada por initdb
+      LANG: es_VE.ISO-8859-15
+      LC_ALL: es_VE.ISO-8859-15
       # TZ will be loaded from env_file
-      # Path check inside Debian Jessie/Bookworm usually:
+      # Path check inside Debian Stretch/Bookworm usually:
       LD_PRELOAD: /usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1
     env_file:
       - path: ../.env
