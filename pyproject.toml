@@ -1,0 +1,28 @@
+[project]
+name = "sigesp-container"
+version = "0.1.0"
+description = "SIGESP container helpers and faketime API"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "starlette>=1.0.0",
+    "uvicorn>=0.45.0",
+]
+
+[project.scripts]
+faketime-api = "faketime_api.app:main"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+only-include = ["faketime_api"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.11",
+]

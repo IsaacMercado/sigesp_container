@@ -108,10 +108,10 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    wget https://www.openssl.org/source/old/1.0.2/openssl-1.0.2u.tar.gz; \
+    wget -O openssl-1.0.2u.tar.gz https://github.com/openssl/openssl/archive/refs/tags/OpenSSL_1_0_2u.tar.gz; \
     tar -xzf openssl-1.0.2u.tar.gz -C /usr/src/ ;\
     rm openssl-1.0.2u.tar.gz ;\
-    cd /usr/src/openssl-1.0.2u ;\
+    cd /usr/src/openssl-OpenSSL_1_0_2u ;\
     ./config shared --openssldir=/opt/openssl-1.0.2/ enable-ec_nistp_64_gcc_128 ;\
     make depend ;\
     make -j$(nproc) ;\

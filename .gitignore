@@ -1,4 +1,7 @@
 src/*
 temp
 .env
+.venv/
+__pycache__
 backups/
+service_data/

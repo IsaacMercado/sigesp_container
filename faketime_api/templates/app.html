@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIGESP Faketime</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4efe7;
+      --panel: rgba(255, 252, 247, 0.92);
+      --line: #d6c8b6;
+      --text: #2f2418;
+      --muted: #746553;
+      --accent: #146356;
+      --accent-strong: #0d4d42;
+      --danger: #a63f2d;
+      --shadow: 0 24px 60px rgba(49, 33, 14, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(20, 99, 86, 0.16), transparent 28%),
+        radial-gradient(circle at left bottom, rgba(166, 63, 45, 0.12), transparent 30%),
+        linear-gradient(180deg, #f8f4ee, var(--bg));
+      min-height: 100vh;
+    }
+
+    .shell {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 32px auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .hero, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      padding: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 6vw, 60px);
+      line-height: 0.95;
+      max-width: 11ch;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+    }
+
+    .panel { padding: 22px; }
+    .panel h2, .panel h3 { margin: 0 0 12px; }
+    .panel h2 { font-size: 28px; }
+    .panel h3 { font-size: 18px; }
+    .stack { display: grid; gap: 16px; }
+    .row { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    input, select, textarea, button {
+      font: inherit;
+      border-radius: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      padding: 12px 16px;
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      transition: transform 120ms ease, background 120ms ease;
+    }
+
+    button:hover { transform: translateY(-1px); background: var(--accent-strong); }
+    button.secondary { background: #8a745b; }
+    button.danger { background: var(--danger); }
+
+    .status {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.6);
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 74px;
+      color: var(--muted);
+    }
+
+    .pillbox {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.78);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .mono {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 13px;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin: -6px 0 0;
+    }
+
+    @media (max-width: 880px) {
+      .grid { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero">
+      <div class="eyebrow">SIGESP Faketime Console</div>
+      <h1>Login web, alta de usuarios solo por terminal.</h1>
+      <p>
+        Esta vista consume la API existente. Puedes iniciar sesion, cerrar sesion y editar el valor actual de
+        <span class="mono">container/faketime/current.rc</span>. El registro de usuarios ya no esta disponible por HTTP.
+      </p>
+      <div class="pillbox">
+        <span class="pill">Cookies de sesion</span>
+        <span class="pill">SQLite local</span>
+        <span class="pill">Alta solo por terminal</span>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel stack">
+        <div>
+          <h2>Faketime</h2>
+          <p class="hint">Consulta el valor actual o actualizalo sin tocar el archivo a mano.</p>
+        </div>
+
+        <div class="row">
+          <div class="status">
+            <strong>Sesion</strong>
+            <div id="sessionState" class="mono">No autenticado</div>
+          </div>
+          <div class="status">
+            <strong>Valor actual</strong>
+            <div id="faketimeState" class="mono">Cargando...</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <button id="refreshButton" type="button">Refrescar estado</button>
+          <button id="logoutButton" class="danger" type="button">Cerrar sesion</button>
+        </div>
+
+        <form id="faketimeForm" class="stack">
+          <div class="row">
+            <label>
+              Modo
+              <select id="mode" name="mode">
+                <option value="start_at">start_at</option>
+                <option value="absolute">absolute</option>
+                <option value="relative">relative</option>
+                <option value="raw">raw</option>
+              </select>
+            </label>
+            <label>
+              Ejemplo rapido
+              <select id="examples">
+                <option value="">Seleccionar...</option>
+                <option value='{"mode":"start_at","value":"2028-03-15 12:34:56"}'>start_at 2028-03-15 12:34:56</option>
+                <option value='{"mode":"absolute","value":"2028-03-15 12:34:56"}'>absolute 2028-03-15 12:34:56</option>
+                <option value='{"mode":"relative","value":"+14d"}'>relative +14d</option>
+                <option value='{"mode":"relative","value":"+0 x2"}'>relative +0 x2</option>
+                <option value='{"mode":"raw","value":"@2030-01-02 03:04:05"}'>raw @2030-01-02 03:04:05</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Valor
+            <textarea id="value" name="value" placeholder="@2028-03-15 12:34:56"></textarea>
+          </label>
+          <p class="hint">Usa <span class="mono">absolute</span>, <span class="mono">start_at</span>, <span class="mono">relative</span> o <span class="mono">raw</span>.</p>
+          <button type="submit">Guardar faketime</button>
+        </form>
+
+        <div>
+          <h3>Actividad</h3>
+          <div id="activity" class="status mono">Listo.</div>
+        </div>
+      </section>
+
+      <section class="panel stack">
+        <div>
+          <h2>Acceso</h2>
+          <p class="hint">El alta de usuarios se hace solo en la terminal del servidor.</p>
+        </div>
+
+        <div class="status mono">Crear usuario por terminal:
+uv run faketime-api create-user --username admin
+
+Si no pasas --password, el comando la pedira sin eco.</div>
+
+        <form id="loginForm" class="stack">
+          <h3>Login</h3>
+          <label>
+            Usuario
+            <input id="loginUsername" name="username" autocomplete="username" />
+          </label>
+          <label>
+            Clave
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" />
+          </label>
+          <button class="secondary" type="submit">Iniciar sesion</button>
+        </form>
+
+        <div>
+          <h3>Formatos permitidos</h3>
+          <div class="status mono">absolute: YYYY-MM-DD HH:MM:SS
+start_at: @YYYY-MM-DD HH:MM:SS
+relative: +14d, -10m, +0 x2
+raw: cualquier expresion valida de una sola linea</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const sessionState = document.getElementById('sessionState');
+    const faketimeState = document.getElementById('faketimeState');
+    const activity = document.getElementById('activity');
+    const modeInput = document.getElementById('mode');
+    const valueInput = document.getElementById('value');
+    const examples = document.getElementById('examples');
+
+    function setActivity(message, isError = false) {
+      activity.textContent = message;
+      activity.style.color = isError ? '#a63f2d' : '#746553';
+    }
+
+    async function apiFetch(url, options = {}) {
+      const response = await fetch(url, {
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(options.headers || {}),
+        },
+        ...options,
+      });
+      const contentType = response.headers.get('content-type') || '';
+      const payload = contentType.includes('application/json') ? await response.json() : await response.text();
+      if (!response.ok) {
+        const message = typeof payload === 'object' && payload && payload.error ? payload.error : response.statusText;
+        throw new Error(message);
+      }
+      return payload;
+    }
+
+    async function refreshState() {
+      try {
+        const user = await apiFetch('/auth/me');
+        sessionState.textContent = `${user.username} (id ${user.id})`;
+      } catch {
+        sessionState.textContent = 'No autenticado';
+      }
+
+      try {
+        const faketime = await apiFetch('/faketime');
+        faketimeState.textContent = `${faketime.value} [${faketime.mode}]`;
+        if (!valueInput.value) {
+          valueInput.value = faketime.value;
+        }
+        modeInput.value = faketime.mode;
+      } catch {
+        faketimeState.textContent = 'Necesitas iniciar sesion para consultar el valor.';
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+      try {
+        const payload = await apiFetch('/auth/login', {
+          method: 'POST',
+          body: JSON.stringify({ username, password }),
+        });
+        setActivity(`Sesion iniciada: ${payload.username}`);
+        await refreshState();
+      } catch (error) {
+        setActivity(error.message, true);
+      }
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+      try {
+        await apiFetch('/auth/logout', { method: 'POST', body: '{}' });
+        setActivity('Sesion cerrada.');
+        await refreshState();
+      } catch (error) {
+        setActivity(error.message, true);
+      }
+    });
+
+    document.getElementById('refreshButton').addEventListener('click', async () => {
+      await refreshState();
+      setActivity('Estado refrescado.');
+    });
+
+    document.getElementById('faketimeForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      try {
+        const payload = await apiFetch('/faketime', {
+          method: 'PUT',
+          body: JSON.stringify({ mode: modeInput.value, value: valueInput.value }),
+        });
+        setActivity(`Faketime actualizado: ${payload.value}`);
+        await refreshState();
+      } catch (error) {
+        setActivity(error.message, true);
+      }
+    });
+
+    examples.addEventListener('change', (event) => {
+      if (!event.target.value) {
+        return;
+      }
+      const preset = JSON.parse(event.target.value);
+      modeInput.value = preset.mode;
+      valueInput.value = preset.value;
+    });
+
+    refreshState();
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.git
+.venv
+__pycache__
+backups
+service_data
+src
+*.pyc
+*.pyo
+*.pyd

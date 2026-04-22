@@ -1,5 +1,20 @@
 name: sigesp-v2-temp
 services:
+  faketime-api:
+    build:
+      context: ..
+      dockerfile: container/api/Dockerfile
+    container_name: sigesp-faketime-api
+    volumes:
+      - ./faketime/current.rc:/app/container/faketime/current.rc
+      - sigesp-faketime-api-data:/app/service_data
+    ports:
+      - "${FAKETIME_API_BIND_PORT:-8789}:8080"
+    environment:
+      FAKETIME_API_HOST: 0.0.0.0
+      FAKETIME_API_PORT: 8080
+    restart: unless-stopped
+
   php:
     build:
       context: .
@@ -7,12 +22,15 @@ services:
     container_name: sigesp-php-v2-temp
     volumes:
       - ../src:/var/www/html
+      - ./faketime/current.rc:/var/lib/faketime/current.rc
     ports:
       - "8003:80"
     depends_on:
       - postgres
     environment:
       - LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1
+      - FAKETIME_TIMESTAMP_FILE=/var/lib/faketime/current.rc
+      - FAKETIME_NO_CACHE=1
       - LANG=es_VE.iso885915
       - LC_ALL=es_VE.iso885915
       - LC_CTYPE=es_VE.iso885915
@@ -28,6 +46,7 @@ services:
     command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
     volumes:
       - sigesp-data-v2-1:/var/lib/postgresql/data
+      - ./faketime/current.rc:/var/lib/faketime/current.rc
     ports:
       - "6003:5432"
     environment:
@@ -39,10 +58,13 @@ services:
       LC_ALL: es_VE.ISO-8859-15
       # TZ will be loaded from env_file
       # Path check inside Debian Stretch/Bookworm usually:
-      LD_PRELOAD: /usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1
+      LD_PRELOAD: /usr/local/lib/faketime/libfaketime.so.1
+      FAKETIME_TIMESTAMP_FILE: /var/lib/faketime/current.rc
+      FAKETIME_NO_CACHE: "1"
     env_file:
       - path: ../.env
         required: false
 
 volumes:
+  sigesp-faketime-api-data:
   sigesp-data-v2-1:
