@@ -1,3 +1,5 @@
+# SIGESP
+
 ## Faketime API
 
 Servicio HTTP simple en Starlette para:
@@ -128,19 +130,50 @@ Modos soportados por la API:
 - `relative`: `+14d`, `-10m`, `+0 x2`
 - `raw`: expresion libfaketime de una sola linea
 
-# SIGESP
+## Base de datos
 
-## Crear super usuario en la base de datos
+### Crear super usuario en la base de datos
 
 ```bash
-docker exec -it sigesp-v2 su -c "createuser -s -P sigesp" postgres
-
-docker exec sigesp-postgres-v2-temp psql -U postgres -c "CREATE DATABASE db_cida_2025 ENCODING 'LATIN9' LC_COLLATE='es_VE.iso885915' LC_CTYPE='es_VE.iso885915' TEMPLATE template0;"
+docker compose -f container/compose.yaml exec -u postgres postgres createuser -s sigesp
 ```
 
-## Crear un respaldo
+### Crear base de datos en LATIN9
 
-```sh
+Ya por defecto las bases de datos se crean con el encoding LATIN9
+
+```bash
+docker compose -f container/compose.yaml exec -u postgres postgres createdb -U sigesp test_db
+```
+
+Explicitamente seria:
+
+```bash
+docker compose -f container/compose.yaml exec -u postgres postgres psql      
+psql -c "CREATE DATABASE test_db ENCODING 'LATIN9' LC_COLLATE='es_VE.iso885915' LC_CTYPE='es_VE.iso885915' TEMPLATE template0;"
+```
+
+### Crear un respaldo
+
+Puedes usar el script
+
+```bash
+chmod +x backup.sh
+./backup.sh db_cida_2025
+```
+
+Si lo quieres poner en un crontab
+
+```bash
 0 9 * * * .../sigesp_container/backup.sh db_cida_2025 >> .../sigesp_container/backups/backup.log 2>&1
 0 14 * * * .../sigesp_container/backup.sh db_cida_2025 >> .../sigesp_container/backups/backup.log 2>&1
+```
+
+### Clonar esquema
+
+Puedes usar el script 
+
+```bash
+chmod +x clone_schema.sh
+./clone_schema.sh db_cida_2025 db_nueva_2025
 ```
