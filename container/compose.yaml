@@ -3,10 +3,10 @@ services:
   php:
     build:
       context: .
-      dockerfile: docker/app/Dockerfile
+      dockerfile: app/Dockerfile
     container_name: sigesp-php-v2-temp
     volumes:
-      - ../src/v2:/var/www/html
+      - ../src:/var/www/html
     ports:
       - "8003:80"
     depends_on:
@@ -23,7 +23,7 @@ services:
   postgres:
     build:
       context: .
-      dockerfile: docker/db/Dockerfile
+      dockerfile: db/Dockerfile
     container_name: sigesp-postgres-v2-temp
     command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
     volumes:

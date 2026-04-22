@@ -271,13 +271,13 @@ RUN set -eux; \
     rm -rf /tmp/pear ~/.pearrc; \
     php --version
 
-COPY docker/app/docker-php-entrypoint /usr/local/bin/
+COPY app/docker-php-entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-php-entrypoint && sed -i 's/\r$//' /usr/local/bin/docker-php-entrypoint
 
 ENTRYPOINT ["docker-php-entrypoint"]
 STOPSIGNAL SIGWINCH
 
-COPY docker/app/apache2-foreground /usr/local/bin/
+COPY app/apache2-foreground /usr/local/bin/
 RUN chmod +x /usr/local/bin/apache2-foreground && sed -i 's/\r$//' /usr/local/bin/apache2-foreground
 
 WORKDIR /var/www/html
