@@ -6,7 +6,7 @@ services:
       dockerfile: container/api/Dockerfile
     container_name: sigesp-faketime-api
     volumes:
-      - ./faketime/current.rc:/app/container/faketime/current.rc
+      - ./faketime/current.rc:/app/container/faketime/current.rc:z
       - sigesp-faketime-api-data:/app/service_data
     ports:
       - "${FAKETIME_API_BIND_PORT:-8789}:8080"
@@ -21,8 +21,8 @@ services:
       dockerfile: app/Dockerfile
     container_name: sigesp-php-v2-temp
     volumes:
-      - ../src:/var/www/html
-      - ./faketime/current.rc:/var/lib/faketime/current.rc
+      - ../src:/var/www/html:z
+      - ./faketime/current.rc:/var/lib/faketime/current.rc:z
     ports:
       - "8003:80"
     depends_on:
@@ -47,7 +47,7 @@ services:
     command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
     volumes:
       - sigesp-data-v2-1:/var/lib/postgresql/data
-      - ./faketime/current.rc:/var/lib/faketime/current.rc
+      - ./faketime/current.rc:/var/lib/faketime/current.rc:z
     ports:
       - "6003:5432"
     environment:
@@ -71,6 +71,35 @@ services:
     env_file:
       - path: ../.env
         required: false
+
+  pgagent:
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    container_name: sigesp-pgagent-v2-temp
+    command: >
+      bash -c "psql -h postgres -U postgres -d postgres -c 'CREATE EXTENSION IF NOT EXISTS pgagent;' && pgagent -f -l 1 'host=postgres user=postgres dbname=postgres'"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGUSER: postgres
+      PGHOST: postgres
+    env_file:
+      - path: ../.env
+        required: false
+
+  pgadmin:
+    image: dpage/pgadmin4:6.12
+    container_name: sigesp-pgadmin-v2-temp
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   sigesp-faketime-api-data:
