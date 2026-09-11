@@ -1,4 +1,4 @@
-name: sigesp-v2-temp
+name: sigesp-v2-lasted
 services:
   faketime-api:
     build:
@@ -19,7 +19,7 @@ services:
     build:
       context: .
       dockerfile: app/Dockerfile
-    container_name: sigesp-php-v2-temp
+    container_name: sigesp-php-v2
     volumes:
       - ../src:/var/www/html:z
       - ./faketime/current.rc:/var/lib/faketime/current.rc:z
@@ -43,7 +43,7 @@ services:
     build:
       context: .
       dockerfile: db/Dockerfile
-    container_name: sigesp-postgres-v2-temp
+    container_name: sigesp-postgres-v2
     command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
     volumes:
       - sigesp-data-v2-1:/var/lib/postgresql/data
@@ -58,8 +58,8 @@ services:
       LANG: es_VE.ISO-8859-15
       LC_ALL: es_VE.ISO-8859-15
       # TZ will be loaded from env_file
-      # Path check inside Debian Stretch/Bookworm usually:
-      LD_PRELOAD: /usr/local/lib/faketime/libfaketime.so.1
+      # Do not preload libfaketime during the image entrypoint: a fresh
+      # PostgreSQL data directory can otherwise hang while initdb runs.
       FAKETIME_TIMESTAMP_FILE: /var/lib/faketime/current.rc
       FAKETIME_NO_CACHE: "1"
     healthcheck:
@@ -76,7 +76,7 @@ services:
     build:
       context: .
       dockerfile: db/Dockerfile
-    container_name: sigesp-pgagent-v2-temp
+    container_name: sigesp-pgagent-v2
     command: >
       bash -c "psql -h postgres -U postgres -d postgres -c 'CREATE EXTENSION IF NOT EXISTS pgagent;' && pgagent -f -l 1 'host=postgres user=postgres dbname=postgres'"
     depends_on:
@@ -91,7 +91,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:6.12
-    container_name: sigesp-pgadmin-v2-temp
+    container_name: sigesp-pgadmin-v2
     ports:
       - "5050:80"
     environment:

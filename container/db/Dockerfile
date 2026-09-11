@@ -1,6 +1,7 @@
 FROM postgres:9.6
 
-ADD https://github.com/wolfcw/libfaketime/archive/master.tar.gz /usr/local/src/libfaketime.tar.gz
+# Pin the source because the current branch can change its Makefile syntax.
+ADD https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.12.tar.gz /usr/local/src/libfaketime.tar.gz
 
 # Fix sources for Debian Stretch (EOL)
 # Remove dead postgres repos

@@ -14,7 +14,7 @@ set -e
 
 # 1. Configurar nombres de los contenedores
 SOURCE_CONTAINER="sigesp-v2"
-TARGET_CONTAINER="sigesp-postgres-v2-temp"
+TARGET_CONTAINER="sigesp-postgres-v2"
 DB_USER="postgres"
 
 echo "Obteniendo bases de datos desde $SOURCE_CONTAINER..."
@@ -30,6 +30,9 @@ for DB in $DATABASES; do
     echo "=================================="
     echo "Procesando la base de datos: $DB"
     echo "=================================="
+
+    # 0. Creando rol de superusuario "sigesp" si no existe en el contenedor destino
+    docker exec -u $DB_USER $TARGET_CONTAINER psql -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'sigesp') THEN CREATE ROLE sigesp WITH LOGIN SUPERUSER PASSWORD 'sigesp'; END IF; END \$\$;" > /dev/null 2>&1
 
     # 1. Crear base de datos en el contenedor destino forzando LATIN9
     echo "Creando base de datos en contenedor destino..."
