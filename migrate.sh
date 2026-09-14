@@ -31,14 +31,14 @@ for DB in $DATABASES; do
     echo "Procesando la base de datos: $DB"
     echo "=================================="
 
-    # 0. Creando rol de superusuario "sigesp" si no existe en el contenedor destino
-    docker exec -u $DB_USER $TARGET_CONTAINER psql -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'sigesp') THEN CREATE ROLE sigesp WITH LOGIN SUPERUSER PASSWORD 'sigesp'; END IF; END \$\$;" > /dev/null 2>&1
-
     # 1. Crear base de datos en el contenedor destino forzando LATIN9
     echo "Creando base de datos en contenedor destino..."
     docker exec -u $DB_USER $TARGET_CONTAINER psql -c "DROP DATABASE IF EXISTS \"$DB\";" > /dev/null 2>&1
     docker exec -u $DB_USER $TARGET_CONTAINER psql -c "CREATE DATABASE \"$DB\" ENCODING 'LATIN9';" > /dev/null 2>&1
-    
+
+    # 1.1. Creando rol de superusuario "sigesp" si no existe en el contenedor destino
+    docker exec -u $DB_USER $TARGET_CONTAINER psql -c "DO \$\$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'sigesp') THEN CREATE ROLE sigesp WITH LOGIN SUPERUSER PASSWORD 'sigesp'; END IF; END \$\$;" > /dev/null 2>&1
+
     # 2. Respaldar y migrar volcado entre contenedores. 
     # Forzar client_encoding a LATIN9 (-E LATIN9)
     echo "Migrando datos..."
