@@ -7,7 +7,7 @@ if [ -z "$DB_NAME" ]; then
   exit 1
 fi
 
-CONTAINER_NAME="sigesp-v2"
+CONTAINER_NAME="sigesp-postgres-v2"
 DATE=$(date +"%Y%m%d%H%M%S")
 
 SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
