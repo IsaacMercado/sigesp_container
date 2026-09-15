@@ -1,5 +1,10 @@
 # SIGESP
 
+## Requisito
+
+Para que se ejecute el contenedor sin fallas tienes que configurar las variables 
+de entorno en el .env y configurar el `container/faketime/current.rc`
+
 ## Faketime API
 
 Servicio HTTP simple en Starlette para:
