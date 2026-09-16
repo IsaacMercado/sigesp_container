@@ -6,388 +6,950 @@
   <title>SIGESP Faketime</title>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4efe7;
-      --panel: rgba(255, 252, 247, 0.92);
-      --line: #d6c8b6;
-      --text: #2f2418;
-      --muted: #746553;
-      --accent: #146356;
-      --accent-strong: #0d4d42;
-      --danger: #a63f2d;
-      --shadow: 0 24px 60px rgba(49, 33, 14, 0.12);
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface-2: #222632;
+      --border: #2e3348;
+      --text: #e8eaf0;
+      --muted: #8b90a5;
+      --accent: #2dd4a8;
+      --accent-dim: rgba(45, 212, 168, 0.12);
+      --accent-hover: #3ee8bc;
+      --danger: #f45866;
+      --danger-dim: rgba(244, 88, 102, 0.12);
+      --warn: #f5a623;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+      --radius: 14px;
+      --radius-sm: 10px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; }
+
     body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(20, 99, 86, 0.16), transparent 28%),
-        radial-gradient(circle at left bottom, rgba(166, 63, 45, 0.12), transparent 30%),
-        linear-gradient(180deg, #f8f4ee, var(--bg));
+      background: var(--bg);
       min-height: 100vh;
+      line-height: 1.5;
     }
 
-    .shell {
-      width: min(1120px, calc(100vw - 32px));
-      margin: 32px auto;
+    .app {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
       display: grid;
       gap: 20px;
     }
 
-    .hero, .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
+    /* ── Header ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .hero {
-      padding: 28px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent), #1a9e80);
+      border-radius: 12px;
       display: grid;
+      place-items: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--bg);
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand h1 span {
+      color: var(--accent);
+    }
+
+    .session-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: default;
+      transition: border-color 0.15s;
+    }
+
+    .session-chip .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--danger);
+      flex-shrink: 0;
+    }
+
+    .session-chip.authed .dot {
+      background: var(--accent);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .card-header .badge {
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: -12px;
+    }
+
+    /* ── Status Row ── */
+    .status-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .status-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .status-box .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .status-box .value {
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+      font-size: 14px;
+      color: var(--text);
+      word-break: break-all;
+    }
+
+    .status-box .value.empty {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-ghost {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--muted);
+      background: var(--border);
+    }
+
+    .btn-danger {
+      background: var(--danger-dim);
+      color: var(--danger);
+      border: 1px solid rgba(244, 88, 102, 0.2);
+    }
+
+    .btn-danger:hover {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Forms ── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(32px, 6vw, 60px);
-      line-height: 0.95;
-      max-width: 11ch;
-    }
-
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 62ch;
-      font-size: 16px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 20px;
-    }
-
-    .panel { padding: 22px; }
-    .panel h2, .panel h3 { margin: 0 0 12px; }
-    .panel h2 { font-size: 28px; }
-    .panel h3 { font-size: 18px; }
-    .stack { display: grid; gap: 16px; }
-    .row { display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-    label {
+    .field {
       display: grid;
       gap: 6px;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 700;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      color: var(--muted);
     }
 
-    input, select, textarea, button {
+    .field input,
+    .field select {
       font: inherit;
-      border-radius: 14px;
+      font-size: 14px;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      transition: border-color 0.15s;
+      width: 100%;
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.78);
+    .field input:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+
+    .field input::placeholder {
+      color: #555a70;
+    }
+
+    .field input:invalid:not(:placeholder-shown) {
+      border-color: var(--danger);
+      box-shadow: 0 0 0 3px var(--danger-dim);
+    }
+
+    .field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b90a5' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .field select option {
+      background: var(--surface);
       color: var(--text);
     }
 
-    textarea {
-      min-height: 112px;
-      resize: vertical;
+    .field .hint {
+      font-size: 12px;
+      color: #555a70;
+      font-style: italic;
     }
 
-    button {
-      border: 0;
-      padding: 12px 16px;
+    .field input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.7);
       cursor: pointer;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 700;
-      transition: transform 120ms ease, background 120ms ease;
     }
 
-    button:hover { transform: translateY(-1px); background: var(--accent-strong); }
-    button.secondary { background: #8a745b; }
-    button.danger { background: var(--danger); }
-
-    .status {
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.6);
+    /* ── Activity Log ── */
+    .log {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 56px;
+      max-height: 140px;
+      overflow-y: auto;
       white-space: pre-wrap;
       word-break: break-word;
-      min-height: 74px;
-      color: var(--muted);
+      line-height: 1.6;
     }
 
-    .pillbox {
+    .log.error { color: var(--danger); }
+    .log.success { color: var(--accent); }
+
+    /* ── Quick Examples ── */
+    .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--line);
+    .chip {
+      padding: 6px 14px;
       border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.78);
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
       color: var(--muted);
-      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
     }
 
-    .mono {
-      font-family: "Cascadia Code", Consolas, monospace;
-      font-size: 13px;
+    .chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
     }
 
-    .hint {
+    .chip.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* ── Format Reference ── */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .ref-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .ref-item .mode {
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .ref-item .syntax {
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Two-Column Layout ── */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 20px;
+    }
+
+    /* ── Login Overlay ── */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+      display: grid;
+      place-items: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .login-overlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .login-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      width: min(400px, calc(100vw - 32px));
+      display: grid;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .login-box h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .login-box .hint {
       font-size: 13px;
       color: var(--muted);
-      margin: -6px 0 0;
     }
 
-    @media (max-width: 880px) {
-      .grid { grid-template-columns: 1fr; }
-      .row { grid-template-columns: 1fr; }
+    .login-box .cmd {
+      font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .login-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .login-actions .btn { flex: 1; }
+
+    .field-with-toggle {
+      position: relative;
+    }
+
+    .field-with-toggle input {
+      padding-right: 44px;
+    }
+
+    .toggle-pass {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      top: 8px;
+      width: 30px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .toggle-pass:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .toggle-pass svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .login-error {
+      display: none;
+      font-size: 13px;
+      color: var(--danger);
+      background: var(--danger-dim);
+      border: 1px solid rgba(244, 88, 102, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      line-height: 1.4;
+    }
+
+    .login-error.visible {
+      display: block;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .status-row { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .ref-grid { grid-template-columns: 1fr; }
+      .header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <section class="hero">
-      <div class="eyebrow">SIGESP Faketime Console</div>
-      <h1>Login web, alta de usuarios solo por terminal.</h1>
-      <p>
-        Esta vista consume la API existente. Puedes iniciar sesion, cerrar sesion y editar el valor actual de
-        <span class="mono">container/faketime/current.rc</span>. El registro de usuarios ya no esta disponible por HTTP.
-      </p>
-      <div class="pillbox">
-        <span class="pill">Cookies de sesion</span>
-        <span class="pill">SQLite local</span>
-        <span class="pill">Alta solo por terminal</span>
+  <div class="app">
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">
+        <div class="brand-icon">F</div>
+        <h1>SIGESP <span>Faketime</span></h1>
       </div>
-    </section>
+      <div id="sessionChip" class="session-chip">
+        <span class="dot"></span>
+        <span id="sessionLabel">No autenticado</span>
+        <button id="sessionAction" class="btn btn-ghost" style="padding: 4px 12px; font-size: 12px; border-radius: 999px;">Entrar</button>
+      </div>
+    </div>
 
-    <div class="grid">
-      <section class="panel stack">
-        <div>
-          <h2>Faketime</h2>
-          <p class="hint">Consulta el valor actual o actualizalo sin tocar el archivo a mano.</p>
+    <div class="main-grid">
+      <!-- Left: Faketime Panel -->
+      <div class="card">
+        <div class="card-header">
+          <h2>Control de faketime</h2>
+          <span class="badge">API activa</span>
         </div>
+        <p class="card-desc">Consulta o actualiza el valor de <code style="background:var(--surface-2);padding:2px 6px;border-radius:4px;font-size:13px;">container/faketime/current.rc</code></p>
 
-        <div class="row">
-          <div class="status">
-            <strong>Sesion</strong>
-            <div id="sessionState" class="mono">No autenticado</div>
+        <div class="status-row">
+          <div class="status-box">
+            <span class="label">Valor actual</span>
+            <span id="faketimeValue" class="value empty">Cargando...</span>
           </div>
-          <div class="status">
-            <strong>Valor actual</strong>
-            <div id="faketimeState" class="mono">Cargando...</div>
+          <div class="status-box">
+            <span class="label">Modo activo</span>
+            <span id="faketimeMode" class="value empty">—</span>
           </div>
         </div>
 
-        <div class="row">
-          <button id="refreshButton" type="button">Refrescar estado</button>
-          <button id="logoutButton" class="danger" type="button">Cerrar sesion</button>
+        <div class="btn-row">
+          <button id="refreshBtn" class="btn btn-ghost" type="button">↻ Refrescar</button>
         </div>
 
-        <form id="faketimeForm" class="stack">
-          <div class="row">
-            <label>
-              Modo
-              <select id="mode" name="mode">
+        <form id="faketimeForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="modeSelect">Modo</label>
+              <select id="modeSelect" name="mode">
                 <option value="start_at">start_at</option>
                 <option value="absolute">absolute</option>
                 <option value="relative">relative</option>
                 <option value="raw">raw</option>
               </select>
-            </label>
-            <label>
-              Ejemplo rapido
-              <select id="examples">
-                <option value="">Seleccionar...</option>
-                <option value='{"mode":"start_at","value":"2028-03-15 12:34:56"}'>start_at 2028-03-15 12:34:56</option>
-                <option value='{"mode":"absolute","value":"2028-03-15 12:34:56"}'>absolute 2028-03-15 12:34:56</option>
-                <option value='{"mode":"relative","value":"+14d"}'>relative +14d</option>
-                <option value='{"mode":"relative","value":"+0 x2"}'>relative +0 x2</option>
-                <option value='{"mode":"raw","value":"@2030-01-02 03:04:05"}'>raw @2030-01-02 03:04:05</option>
-              </select>
-            </label>
+            </div>
+
+            <div class="field" id="valueField">
+              <label for="valueInput" id="valueLabel">Valor</label>
+              <div id="valueInputWrapper"></div>
+              <span class="hint" id="valueHint"></span>
+            </div>
           </div>
 
-          <label>
-            Valor
-            <textarea id="value" name="value" placeholder="@2028-03-15 12:34:56"></textarea>
-          </label>
-          <p class="hint">Usa <span class="mono">absolute</span>, <span class="mono">start_at</span>, <span class="mono">relative</span> o <span class="mono">raw</span>.</p>
-          <button type="submit">Guardar faketime</button>
+          <div style="margin-top: 4px;">
+            <label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);display:block;margin-bottom:8px;">Ejemplos rapidos</label>
+            <div class="chips" id="examples">
+              <button type="button" class="chip" data-mode="start_at" data-value="2028-03-15T12:34">start_at 2028-03-15</button>
+              <button type="button" class="chip" data-mode="absolute" data-value="2028-03-15T12:34">absolute 2028-03-15</button>
+              <button type="button" class="chip" data-mode="relative" data-value="+14d">relative +14d</button>
+              <button type="button" class="chip" data-mode="relative" data-value="+0 x2">relative +0 x2</button>
+              <button type="button" class="chip" data-mode="raw" data-value="@2030-01-02 03:04:05">raw @2030-01-02</button>
+            </div>
+          </div>
+
+          <div class="btn-row" style="margin-top: 8px;">
+            <button type="submit" class="btn btn-primary">Aplicar faketime</button>
+          </div>
         </form>
 
         <div>
-          <h3>Actividad</h3>
-          <div id="activity" class="status mono">Listo.</div>
+          <label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);display:block;margin-bottom:8px;">Actividad</label>
+          <div id="log" class="log">Listo.</div>
         </div>
-      </section>
+      </div>
 
-      <section class="panel stack">
-        <div>
-          <h2>Acceso</h2>
-          <p class="hint">El alta de usuarios se hace solo en la terminal del servidor.</p>
+      <!-- Right: Reference & Actions -->
+      <div style="display:grid;gap:20px;">
+        <div class="card">
+          <div class="card-header">
+            <h2>Formatos</h2>
+          </div>
+          <div class="ref-grid">
+            <div class="ref-item">
+              <span class="mode">start_at</span>
+              <span class="syntax">YYYY-MM-DD HH:MM:SS</span>
+            </div>
+            <div class="ref-item">
+              <span class="mode">absolute</span>
+              <span class="syntax">YYYY-MM-DD HH:MM:SS</span>
+            </div>
+            <div class="ref-item">
+              <span class="mode">relative</span>
+              <span class="syntax">+14d, -10m, +0 x2</span>
+            </div>
+            <div class="ref-item">
+              <span class="mode">raw</span>
+              <span class="syntax">@YYYY-MM-DD ...</span>
+            </div>
+          </div>
         </div>
 
-        <div class="status mono">Crear usuario por terminal:
-uv run faketime-api create-user --username admin
-
-Si no pasas --password, el comando la pedira sin eco.</div>
-
-        <form id="loginForm" class="stack">
-          <h3>Login</h3>
-          <label>
-            Usuario
-            <input id="loginUsername" name="username" autocomplete="username" />
-          </label>
-          <label>
-            Clave
-            <input id="loginPassword" name="password" type="password" autocomplete="current-password" />
-          </label>
-          <button class="secondary" type="submit">Iniciar sesion</button>
-        </form>
-
-        <div>
-          <h3>Formatos permitidos</h3>
-          <div class="status mono">absolute: YYYY-MM-DD HH:MM:SS
-start_at: @YYYY-MM-DD HH:MM:SS
-relative: +14d, -10m, +0 x2
-raw: cualquier expresion valida de una sola linea</div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Sesion</h2>
+          </div>
+          <div class="btn-row">
+            <button id="logoutBtn" class="btn btn-danger" type="button">Cerrar sesion</button>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Overlay -->
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-box">
+      <h2>Iniciar sesion</h2>
+      <p class="hint">El registro de usuarios solo esta disponible por terminal del servidor.</p>
+      <div class="cmd">uv run faketime-api create-user --username admin
+# contrasena minima: 8 caracteres</div>
+      <form id="loginForm" style="display:grid;gap:14px;">
+        <div id="loginError" class="login-error"></div>
+        <div class="field">
+          <label for="loginUser">Usuario</label>
+          <input id="loginUser" name="username" type="text" autocomplete="username" required placeholder="admin" />
+        </div>
+        <div class="field">
+          <label for="loginPass">Clave</label>
+          <div class="field-with-toggle">
+            <input id="loginPass" name="password" type="password" autocomplete="current-password" required placeholder="min. 8 caracteres" />
+            <button type="button" id="togglePass" class="toggle-pass" title="Mostrar / ocultar clave">
+              <svg id="eyeOpen" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg id="eyeClosed" viewBox="0 0 24 24" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="login-actions">
+          <button type="button" id="loginCancel" class="btn btn-ghost">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+      </form>
     </div>
   </div>
 
   <script>
-    const sessionState = document.getElementById('sessionState');
-    const faketimeState = document.getElementById('faketimeState');
-    const activity = document.getElementById('activity');
-    const modeInput = document.getElementById('mode');
-    const valueInput = document.getElementById('value');
-    const examples = document.getElementById('examples');
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => document.querySelectorAll(s);
 
-    function setActivity(message, isError = false) {
-      activity.textContent = message;
-      activity.style.color = isError ? '#a63f2d' : '#746553';
+    const els = {
+      sessionChip: $('#sessionChip'),
+      sessionLabel: $('#sessionLabel'),
+      sessionAction: $('#sessionAction'),
+      faketimeValue: $('#faketimeValue'),
+      faketimeMode: $('#faketimeMode'),
+      refreshBtn: $('#refreshBtn'),
+      modeSelect: $('#modeSelect'),
+      valueLabel: $('#valueLabel'),
+      valueInputWrapper: $('#valueInputWrapper'),
+      valueHint: $('#valueHint'),
+      faketimeForm: $('#faketimeForm'),
+      log: $('#log'),
+      examples: $('#examples'),
+      loginOverlay: $('#loginOverlay'),
+      loginForm: $('#loginForm'),
+      loginUser: $('#loginUser'),
+      loginPass: $('#loginPass'),
+      loginCancel: $('#loginCancel'),
+      logoutBtn: $('#logoutBtn'),
+      loginError: $('#loginError'),
+      togglePass: $('#togglePass'),
+      eyeOpen: $('#eyeOpen'),
+      eyeClosed: $('#eyeClosed'),
+    };
+
+    let loggedUser = null;
+
+    function setLog(msg, type = '') {
+      els.log.textContent = msg;
+      els.log.className = 'log' + (type ? ' ' + type : '');
     }
 
-    async function apiFetch(url, options = {}) {
-      const response = await fetch(url, {
-        credentials: 'same-origin',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(options.headers || {}),
-        },
-        ...options,
-      });
-      const contentType = response.headers.get('content-type') || '';
-      const payload = contentType.includes('application/json') ? await response.json() : await response.text();
-      if (!response.ok) {
-        const message = typeof payload === 'object' && payload && payload.error ? payload.error : response.statusText;
-        throw new Error(message);
+    function setLoginError(msg) {
+      if (!msg) {
+        els.loginError.classList.remove('visible');
+        els.loginError.textContent = '';
+        return;
       }
-      return payload;
+      els.loginError.textContent = msg;
+      els.loginError.classList.add('visible');
     }
 
+    async function apiFetch(url, opts = {}) {
+      const res = await fetch(url, {
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', ...(opts.headers || {}) },
+        ...opts,
+      });
+      const ct = res.headers.get('content-type') || '';
+      const body = ct.includes('application/json') ? await res.json() : await res.text();
+      if (!res.ok) {
+        throw new Error(typeof body === 'object' && body?.error ? body.error : res.statusText);
+      }
+      return body;
+    }
+
+    /* ── Dynamic Input Rendering ── */
+    function renderValueInput(mode) {
+      els.valueInputWrapper.innerHTML = '';
+      els.valueHint.textContent = '';
+
+      let input;
+      switch (mode) {
+        case 'start_at':
+        case 'absolute':
+          input = document.createElement('input');
+          input.type = 'datetime-local';
+          input.id = 'valueInput';
+          input.name = 'value';
+          input.required = true;
+          input.step = '1';
+          els.valueHint.textContent = mode === 'start_at'
+            ? 'Fecha desde la que inicia el contador.'
+            : 'Fecha y hora fijas.';
+          els.valueLabel.textContent = 'Fecha y hora';
+          break;
+
+        case 'relative':
+          input = document.createElement('input');
+          input.type = 'text';
+          input.id = 'valueInput';
+          input.name = 'value';
+          input.required = true;
+          input.pattern = '[\\+\\-]\\d+[smhdw](\\s+x\\d+)?';
+          input.placeholder = '+14d  o  -10m  o  +0 x2';
+          input.title = 'Formato: +14d, -10m, +3h, +0 x2';
+          els.valueHint.textContent = 'Sufijos: s=seg, m=min, h=hora, d=dia, w=semana. xN = repetir.';
+          els.valueLabel.textContent = 'Desplazamiento';
+          break;
+
+        case 'raw':
+        default:
+          input = document.createElement('input');
+          input.type = 'text';
+          input.id = 'valueInput';
+          input.name = 'value';
+          input.required = true;
+          input.placeholder = '@2028-03-15 12:34:56';
+          input.pattern = '.+';
+          els.valueHint.textContent = 'Expresion faketime raw de una sola linea.';
+          els.valueLabel.textContent = 'Expresion';
+          break;
+      }
+
+      els.valueInputWrapper.appendChild(input);
+    }
+
+    function syncInputFromValue(mode, value) {
+      const input = $('#valueInput');
+      if (!input) return;
+
+      if (mode === 'start_at' || mode === 'absolute') {
+        if (value && /^\d{4}-\d{2}-\d{2}/.test(value)) {
+          const d = new Date(value.replace(' ', 'T'));
+          if (!isNaN(d)) {
+            const pad = (n) => String(n).padStart(2, '0');
+            input.value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+            return;
+          }
+        }
+        input.value = '';
+      } else {
+        input.value = value || '';
+      }
+    }
+
+    function inputValueToApi(mode) {
+      const input = $('#valueInput');
+      if (!input) return '';
+      if (mode === 'start_at' || mode === 'absolute') {
+        if (!input.value) return '';
+        const d = new Date(input.value);
+        const pad = (n) => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      }
+      return input.value;
+    }
+
+    /* ── State Refresh ── */
     async function refreshState() {
       try {
         const user = await apiFetch('/auth/me');
-        sessionState.textContent = `${user.username} (id ${user.id})`;
+        loggedUser = user;
+        els.sessionChip.classList.add('authed');
+        els.sessionLabel.textContent = user.username;
+        els.sessionAction.textContent = 'Salir';
       } catch {
-        sessionState.textContent = 'No autenticado';
+        loggedUser = null;
+        els.sessionChip.classList.remove('authed');
+        els.sessionLabel.textContent = 'No autenticado';
+        els.sessionAction.textContent = 'Entrar';
       }
 
       try {
-        const faketime = await apiFetch('/faketime');
-        faketimeState.textContent = `${faketime.value} [${faketime.mode}]`;
-        if (!valueInput.value) {
-          valueInput.value = faketime.value;
-        }
-        modeInput.value = faketime.mode;
+        const ft = await apiFetch('/faketime');
+        els.faketimeValue.textContent = ft.value || '—';
+        els.faketimeValue.classList.remove('empty');
+        els.faketimeMode.textContent = ft.mode || '—';
+        els.faketimeMode.classList.remove('empty');
+        els.modeSelect.value = ft.mode;
+        renderValueInput(ft.mode);
+        syncInputFromValue(ft.mode, ft.value);
       } catch {
-        faketimeState.textContent = 'Necesitas iniciar sesion para consultar el valor.';
+        els.faketimeValue.textContent = 'Inicia sesion';
+        els.faketimeValue.classList.add('empty');
+        els.faketimeMode.textContent = '—';
+        els.faketimeMode.classList.add('empty');
+        renderValueInput(els.modeSelect.value);
       }
     }
 
-    document.getElementById('loginForm').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const username = document.getElementById('loginUsername').value;
-      const password = document.getElementById('loginPassword').value;
+    /* ── Event Listeners ── */
+    els.sessionAction.addEventListener('click', async () => {
+      if (loggedUser) {
+        try {
+          await apiFetch('/auth/logout', { method: 'POST', body: '{}' });
+          setLog('Sesion cerrada.', 'success');
+          await refreshState();
+        } catch (e) {
+          setLog(e.message, 'error');
+        }
+      } else {
+        setLoginError('');
+        els.loginForm.reset();
+        els.loginOverlay.classList.add('visible');
+        els.loginUser.focus();
+      }
+    });
+
+    els.loginCancel.addEventListener('click', () => {
+      els.loginOverlay.classList.remove('visible');
+      els.loginForm.reset();
+      setLoginError('');
+    });
+
+    els.loginOverlay.addEventListener('click', (e) => {
+      if (e.target === els.loginOverlay) {
+        els.loginOverlay.classList.remove('visible');
+        els.loginForm.reset();
+        setLoginError('');
+      }
+    });
+
+    els.togglePass.addEventListener('click', () => {
+      const isPassword = els.loginPass.type === 'password';
+      els.loginPass.type = isPassword ? 'text' : 'password';
+      els.eyeOpen.style.display = isPassword ? 'none' : '';
+      els.eyeClosed.style.display = isPassword ? '' : 'none';
+      els.loginPass.focus();
+    });
+
+    els.loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setLoginError('');
       try {
         const payload = await apiFetch('/auth/login', {
           method: 'POST',
-          body: JSON.stringify({ username, password }),
+          body: JSON.stringify({ username: els.loginUser.value, password: els.loginPass.value }),
         });
-        setActivity(`Sesion iniciada: ${payload.username}`);
+        els.loginOverlay.classList.remove('visible');
+        els.loginForm.reset();
+        setLog(`Sesion iniciada: ${payload.username}`, 'success');
         await refreshState();
-      } catch (error) {
-        setActivity(error.message, true);
+      } catch (err) {
+        setLoginError(err.message);
       }
     });
 
-    document.getElementById('logoutButton').addEventListener('click', async () => {
+    els.logoutBtn.addEventListener('click', async () => {
       try {
         await apiFetch('/auth/logout', { method: 'POST', body: '{}' });
-        setActivity('Sesion cerrada.');
+        setLog('Sesion cerrada.', 'success');
         await refreshState();
-      } catch (error) {
-        setActivity(error.message, true);
+      } catch (e) {
+        setLog(e.message, 'error');
       }
     });
 
-    document.getElementById('refreshButton').addEventListener('click', async () => {
+    els.refreshBtn.addEventListener('click', async () => {
       await refreshState();
-      setActivity('Estado refrescado.');
+      setLog('Estado refrescado.', 'success');
     });
 
-    document.getElementById('faketimeForm').addEventListener('submit', async (event) => {
-      event.preventDefault();
+    els.modeSelect.addEventListener('change', () => {
+      renderValueInput(els.modeSelect.value);
+    });
+
+    els.faketimeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const mode = els.modeSelect.value;
+      const value = inputValueToApi(mode);
+      if (!value) {
+        setLog('Debes ingresar un valor.', 'error');
+        return;
+      }
       try {
         const payload = await apiFetch('/faketime', {
           method: 'PUT',
-          body: JSON.stringify({ mode: modeInput.value, value: valueInput.value }),
+          body: JSON.stringify({ mode, value }),
         });
-        setActivity(`Faketime actualizado: ${payload.value}`);
+        setLog(`Faketime actualizado: ${payload.value} [${payload.mode}]`, 'success');
         await refreshState();
-      } catch (error) {
-        setActivity(error.message, true);
+      } catch (err) {
+        setLog(err.message, 'error');
       }
     });
 
-    examples.addEventListener('change', (event) => {
-      if (!event.target.value) {
-        return;
-      }
-      const preset = JSON.parse(event.target.value);
-      modeInput.value = preset.mode;
-      valueInput.value = preset.value;
+    els.examples.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      const mode = chip.dataset.mode;
+      const value = chip.dataset.value;
+      els.modeSelect.value = mode;
+      renderValueInput(mode);
+      syncInputFromValue(mode, value);
+      $$('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
     });
 
     refreshState();
