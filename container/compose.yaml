@@ -25,6 +25,7 @@ services:
       - ./faketime/current.rc:/var/lib/faketime/current.rc:z
     ports:
       - "8002:80"
+    restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
@@ -44,6 +45,7 @@ services:
       context: .
       dockerfile: db/Dockerfile
     container_name: sigesp-postgres-v2
+    restart: unless-stopped
     command: postgres -c log_statement=${POSTGRES_LOG_STATEMENT:-all}
     volumes:
       - sigesp-data-v2-1:/var/lib/postgresql/data
@@ -77,6 +79,7 @@ services:
       context: .
       dockerfile: db/Dockerfile
     container_name: sigesp-pgagent-v2
+    restart: unless-stopped
     command: >
       bash -c "psql -h postgres -U postgres -d postgres -c 'CREATE EXTENSION IF NOT EXISTS pgagent;' && pgagent -f -l 1 'host=postgres user=postgres dbname=postgres'"
     depends_on:
@@ -92,6 +95,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4:6.12
     container_name: sigesp-pgadmin-v2
+    restart: unless-stopped
     ports:
       - "5050:80"
     environment:
